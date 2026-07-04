@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+
+.footer-section {
+  position: relative;
+  background-color: #0a0a0f; /* Dark background matching the site's vibe */
+  padding: 60px 24px 0px;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-top: 80px;
+  overflow: hidden;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-container {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  padding-bottom: 80px; /* Space for watermark text */
+}
+
+/* ------------------------------------- */
+/* Left Panel (Brand & Socials) */
+/* ------------------------------------- */
+.footer-panel-brand {
+  flex: 0 0 380px;
+  background: linear-gradient(135deg, #ff8c1a 0%, #e53e00 100%); /* Brand Orange Gradient */
+  border-radius: 32px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  min-height: 380px;
+  box-shadow: 0 20px 40px rgba(229, 62, 0, 0.2);
+}
+
+.footer-logo {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.brand-tagline {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 40px;
+  opacity: 0.95;
+}
+
+.brand-social-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cursive-text {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  transform: rotate(-5deg);
+}
+
+.social-icons-group {
+  display: flex;
+  gap: 8px;
+}
+
+.social-icons-group a {
+  background-color: rgba(0, 0, 0, 0.3); /* Dark translucent squares */
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.social-icons-group a svg {
+  width: 20px;
+  height: 20px;
+}
+
+.social-icons-group a:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------- */
+/* Right Panel (Links & Newsletter) */
+/* ------------------------------------- */
+.footer-panel-content {
+  flex: 1;
+  background-color: transparent;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white; /* Changed to white for dark mode */
+}
+
+.content-top {
+  display: flex;
+  gap: 120px;
+  margin-bottom: 60px;
+}
+
+.footer-links-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-links-col .cursive-text {
+  color: rgba(255,255,255,0.4);
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  transform: rotate(0);
+}
+
+.footer-links-col a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.footer-links-col a:hover {
+  color: #e53e00; /* Brand Orange */
+}
+
+/* Newsletter Area */
+.content-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.copyright p {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.newsletter-box {
+  max-width: 380px;
+}
+
+.newsletter-subtitle {
+  color: rgba(255,255,255,0.5);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.newsletter-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.newsletter-input-row {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.05); /* Dark mode input bg */
+  border-radius: 12px;
+  padding: 6px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.newsletter-input-row input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  color: white;
+}
+
+.newsletter-input-row input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.subscribe-btn {
+  background: linear-gradient(135deg, #ff8c1a 0%, #e53e00 100%);
+  color: white;
+  border: none;
+  border-radius: 30px; /* Pill shape */
+  padding: 10px 24px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(229, 62, 0, 0.3);
+}
+
+.subscribe-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(229, 62, 0, 0.5);
+}
+
+/* ------------------------------------- */
+/* Giant Watermark Text */
+/* ------------------------------------- */
+.footer-giant-text {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-heading);
+  font-size: 18vw;
+  font-weight: 900;
+  background: linear-gradient(180deg, rgba(255, 106, 0, 0.07) 0%, rgba(229, 62, 0, 0.01) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+  letter-spacing: -5px;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .footer-container {
+    flex-direction: column;
+  }
+  
+  .footer-panel-brand {
+    flex: none;
+    min-height: 300px;
+  }
+  
+  .footer-panel-content {
+    padding: 20px 0;
+  }
+  
+  .content-top {
+    gap: 60px;
+  }
+  
+  .footer-giant-text {
+    font-size: 24vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-bottom {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 40px;
+  }
+  
+  .newsletter-box {
+    max-width: 100%;
+    width: 100%;
+  }
+}

@@ -1,0 +1,648 @@
+.case-studies-section {
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+.cs-carousel-container {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding: 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cs-scroll-mask {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.cs-scroll-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 0 40px;
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.cs-scroll-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scroll Buttons */
+.cs-scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: var(--transition-fast);
+}
+
+.cs-scroll-btn:hover {
+  background: rgba(255, 106, 0, 0.2);
+  border-color: var(--accent-purple);
+  color: var(--accent-purple);
+}
+
+.cs-scroll-btn.left {
+  left: max(24px, calc(50vw - 620px));
+}
+
+.cs-scroll-btn.right {
+  right: max(24px, calc(50vw - 620px));
+}
+
+.cs-scroll-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Hover Accordion Cards */
+.cs-accordion-card {
+  height: 380px;
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  /* Spring transition for width */
+  transition: width 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cs-accordion-card.collapsed {
+  width: 80px;
+}
+
+.cs-accordion-card.expanded {
+  width: 360px;
+}
+
+.cs-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.cs-collapsed-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  transform-origin: center center;
+  width: max-content;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.cs-accordion-card.expanded .cs-collapsed-title {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cs-collapsed-title h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+
+/* Expanded Content */
+.cs-expanded-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 360px;
+  height: 100%;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.cs-accordion-card.expanded .cs-expanded-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cs-content-inner {
+  transform: translateY(20px);
+  opacity: 0;
+  /* Delay staggered reveal until expansion finishes (0.6s) roughly */
+  transition: all 0.5s ease 0.22s; 
+}
+
+.cs-accordion-card.expanded .cs-content-inner {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.cs-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cs-industry {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cs-client {
+  color: var(--accent-cyan);
+}
+
+.cs-title-expanded {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.cs-metric-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cs-challenge-preview {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cs-explore-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.cs-explore-btn svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.cs-explore-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* 3D Modal Overlay */
+.cs-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.cs-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cs-modal-perspective {
+  perspective: 1500px;
+  width: 460px;
+  height: 520px;
+}
+
+.cs-3d-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  /* Start slightly small and not flipped */
+  transform: scale(0.8) rotateY(0deg);
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cs-modal-overlay.active .cs-3d-card.flipped {
+  /* Scale up and flip */
+  transform: scale(1) rotateY(180deg);
+}
+
+.cs-card-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cs-card-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px;
+}
+
+.cs-card-front h3 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: white;
+  line-height: 1.1;
+}
+
+.cs-card-back {
+  background: #11111a;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.cs-close-btn:hover {
+  background: rgba(255, 106, 0, 0.8);
+}
+
+.cs-close-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.cs-back-scrollable {
+  padding: 40px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.cs-back-scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+.cs-back-scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+.cs-back-scrollable::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.cs-back-header {
+  margin-bottom: 32px;
+}
+
+.cs-back-industry {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent-cyan);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.cs-back-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.cs-back-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.cs-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.cs-metric-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.cs-metric-box h4 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.cs-metric-box p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cs-back-section {
+  margin-bottom: 32px;
+}
+
+.cs-back-section h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cs-back-section p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.cs-strategy-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cs-strategy-list li {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.cs-strategy-list svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.cs-back-quote {
+  background: rgba(255, 106, 0, 0.05);
+  border-left: 3px solid var(--accent-purple);
+  padding: 20px;
+  border-radius: 0 12px 12px 0;
+  margin-top: 20px;
+}
+
+.cs-back-quote p {
+  font-size: 1rem;
+  font-style: italic;
+  color: white;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.cs-back-quote span {
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  /* Carousel track padding */
+  .cs-scroll-track {
+    padding: 0 16px;
+    gap: 10px;
+  }
+
+  /* Accordion cards: smaller collapsed width, constrained expanded */
+  .cs-accordion-card {
+    height: 300px;
+  }
+
+  .cs-accordion-card.collapsed {
+    width: 56px;
+  }
+
+  .cs-accordion-card.expanded {
+    width: min(240px, 68vw);
+  }
+
+  /* Expanded content must match the card width — no hardcoded 360px */
+  .cs-expanded-content {
+    width: 100%;
+    padding: 20px 16px;
+  }
+
+  .cs-title-expanded {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .cs-meta {
+    font-size: 0.7rem;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .cs-metric-badge {
+    font-size: 0.78rem;
+    padding: 4px 8px;
+    margin-bottom: 10px;
+  }
+
+  .cs-challenge-preview {
+    font-size: 0.75rem;
+    margin-bottom: 14px;
+    -webkit-line-clamp: 2;
+  }
+
+  .cs-explore-btn {
+    font-size: 0.78rem;
+  }
+
+  .cs-explore-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Collapsed title */
+  .cs-collapsed-title h3 {
+    font-size: 0.85rem;
+  }
+
+  /* Scroll buttons smaller on mobile */
+  .cs-scroll-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cs-scroll-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .cs-scroll-btn.left {
+    left: 4px;
+  }
+
+  .cs-scroll-btn.right {
+    right: 4px;
+  }
+
+  /* Modal: fit within screen */
+  .cs-modal-perspective {
+    width: 92vw;
+    height: 78vh;
+    max-height: 580px;
+  }
+
+  /* Modal front card title */
+  .cs-card-front {
+    padding: 24px 20px;
+  }
+
+  .cs-card-front h3 {
+    font-size: 1.4rem;
+  }
+
+  /* Modal back: reduce padding & font sizes */
+  .cs-back-scrollable {
+    padding: 20px 18px;
+  }
+
+  .cs-back-header {
+    margin-bottom: 20px;
+  }
+
+  .cs-back-header h2 {
+    font-size: 1.35rem;
+  }
+
+  .cs-back-subtitle {
+    font-size: 0.85rem;
+  }
+
+  /* Keep metrics 3-col on mobile, reduce padding */
+  .cs-metrics-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .cs-metric-box {
+    padding: 10px 6px;
+  }
+
+  .cs-metric-box h4 {
+    font-size: 1rem;
+  }
+
+  .cs-metric-box p {
+    font-size: 0.65rem;
+  }
+
+  .cs-back-section {
+    margin-bottom: 20px;
+  }
+
+  .cs-back-section h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .cs-back-section p,
+  .cs-strategy-list li {
+    font-size: 0.82rem;
+  }
+
+  .cs-back-quote {
+    padding: 14px;
+    margin-top: 14px;
+  }
+
+  .cs-back-quote p {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
+
+  .cs-back-quote span {
+    font-size: 0.75rem;
+  }
+}
+
