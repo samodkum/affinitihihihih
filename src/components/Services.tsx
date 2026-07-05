@@ -57,6 +57,8 @@ const services: ServiceCard[] = [
   },
 ];
 
+const themes = ['theme-orange', 'theme-white', 'theme-charcoal', 'theme-black'];
+
 export default function Services() {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -204,13 +206,15 @@ export default function Services() {
                   zIndex: index + 10,
                 };
 
+            const themeClass = themes[index % themes.length];
+
             return (
               <div
                 key={service.id}
                 ref={(el) => {
                   cardsRef.current[index] = el;
                 }}
-                className={`service-card ${isMobile ? 'mobile-interactive-card' : ''} ${
+                className={`service-card ${themeClass} ${isMobile ? 'mobile-interactive-card' : ''} ${
                   isMobile && position === 0 ? 'top-card-glow' : ''
                 }`}
                 style={mobileStyle}

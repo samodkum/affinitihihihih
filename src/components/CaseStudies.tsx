@@ -293,6 +293,8 @@ const caseStudiesData: CaseStudy[] = [
   }
 ];
 
+const themes = ['theme-orange', 'theme-white', 'theme-charcoal', 'theme-black'];
+
 const CaseStudies: React.FC = () => {
   const [hoveredId, setHoveredId] = useState<string | null>(caseStudiesData[0].id);
   const [activeCard, setActiveCard] = useState<CaseStudy | null>(null);
@@ -328,6 +330,9 @@ const CaseStudies: React.FC = () => {
     setHoveredId(caseStudiesData[0].id);
   };
 
+  const activeCardIndex = activeCard ? caseStudiesData.findIndex(cs => cs.id === activeCard.id) : -1;
+  const activeThemeClass = activeCardIndex !== -1 ? themes[activeCardIndex % themes.length] : '';
+
   return (
     <section id="case-studies" className="section case-studies-section">
       <div className="section-header">
@@ -342,17 +347,18 @@ const CaseStudies: React.FC = () => {
         {/* Scroll Track & Mask */}
         <div className="cs-scroll-mask">
           <div className="cs-scroll-track" ref={scrollTrackRef}>
-            {caseStudiesData.map((study) => {
+            {caseStudiesData.map((study, idx) => {
               const isHovered = hoveredId === study.id;
+              const themeClass = themes[idx % themes.length];
               
               return (
                 <div 
                   key={study.id}
-                  className={`cs-accordion-card ${isHovered ? 'expanded' : 'collapsed'}`}
+                  className={`cs-accordion-card ${isHovered ? 'expanded' : 'collapsed'} ${themeClass}`}
                   onMouseEnter={() => setHoveredId(study.id)}
                   onClick={() => handleCardClick(study)}
                 >
-                  <div className="cs-card-inner" style={{ background: study.gradient }}>
+                  <div className="cs-card-inner">
                     {/* Collapsed State Title */}
                     <div className="cs-collapsed-title">
                       <h3>{study.title}</h3>
@@ -394,13 +400,13 @@ const CaseStudies: React.FC = () => {
       <div className={`cs-modal-overlay ${activeCard ? 'active' : ''}`} onClick={handleCloseActive}>
         <div className="cs-modal-perspective">
           <div 
-            className={`cs-3d-card ${activeCard ? 'flipped' : ''}`} 
+            className={`cs-3d-card ${activeCard ? 'flipped' : ''} ${activeThemeClass}`} 
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking card
           >
             {activeCard && (
               <>
                 {/* Front Side (Visual anchor during flight) */}
-                <div className="cs-card-face cs-card-front" style={{ background: activeCard.gradient }}>
+                <div className="cs-card-face cs-card-front">
                   <div className="cs-meta">
                     <span>{activeCard.industry}</span>
                   </div>

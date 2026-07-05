@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
   /* Colors */
-  --bg-color: #06060a;
+  --bg-color: #050505;
   --card-bg: rgba(12, 12, 20, 0.5);
   --card-border: rgba(255, 255, 255, 0.07);
   --text-primary: #f8fafc;
@@ -17,8 +17,8 @@
   --hot-core: #FFF4D6;       /* Hot Core Warm White */
   
   /* Fonts */
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'PP Neue Montreal', 'Inter', 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', 'Plus Jakarta Sans', sans-serif;
   
   /* Transitions */
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -32,9 +32,24 @@
 }
 
 html, body {
-  background-color: var(--bg-color);
+  background: linear-gradient(
+    to bottom,
+    #050505 0%,
+    #170b05 10%,
+    #050505 20%,
+    #210f07 35%,
+    #050505 50%,
+    #1b0b04 65%,
+    #050505 78%,
+    #110602 90%,
+    #050505 100%
+  ) !important;
+  background-attachment: scroll !important;
   color: var(--text-primary);
   font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -443,10 +458,11 @@ body::after {
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: 42px;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
   margin-bottom: 20px;
   background: linear-gradient(135deg, var(--text-primary) 30%, var(--text-secondary) 100%);
   -webkit-background-clip: text;
@@ -771,7 +787,7 @@ body::after {
 }
 
 .hero-text-block {
-  max-width: 650px;
+  max-width: 780px;
   pointer-events: auto;
   margin-top: auto;
   margin-bottom: 20px;
@@ -779,10 +795,11 @@ body::after {
 
 .hero-main-title {
   font-family: var(--font-heading);
-  font-size: 4.8rem;
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
   margin-bottom: 16px;
   background: linear-gradient(to bottom, #ffffff 15%, #FFB347 50%, #FF8C1A 80%, #FF6A00 100%);
   -webkit-background-clip: text;
@@ -938,7 +955,7 @@ body::after {
     padding: 35px 24px;
   }
   .hero-main-title {
-    font-size: clamp(1.9rem, 8.5vw, 2.6rem);
+    font-size: clamp(1.6rem, 7.5vw, 2.2rem);
     line-height: 1.15;
   }
   .hero-stats-row {
@@ -977,7 +994,7 @@ body::after {
     display: none !important;
   }
   .hero-text-block {
-    margin-top: 25vh !important;
+    margin-top: 15vh !important;
   }
   .hero-navbar {
     padding: 6px 6px 6px 16px;
@@ -1101,188 +1118,71 @@ body::after {
   }
 }
 
-/* ─── Card (phone-portrait shape) ─── */
-.pf-card {
+/* ─── Brand Items ─── */
+.pf-brand-item {
   flex-shrink: 0;
-  position: relative;
-  width: 210px;
-  height: 320px;
-  border-radius: 28px;
-  background: #111111;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
-  padding: 20px 20px 22px;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-.pf-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  border-color: rgba(255, 106, 0, 0.8);
-  box-shadow: 
-    0 0 30px rgba(255, 106, 0, 0.28),
-    inset 0 0 20px rgba(255, 106, 0, 0.1),
-    0 25px 50px -15px rgba(0, 0, 0, 0.9);
-  background: #131313;
-}
-
-.pf-card:hover .pf-card-name {
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
-}
-
-.pf-card:hover .pf-card-cat {
-  text-shadow: 0 0 8px rgba(255, 106, 0, 0.4);
-}
-
-/* ─── Card expand icon (top-left) ─── */
-.pf-card-expand {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.09);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.7);
+  gap: 12px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
-  transition: var(--transition-fast);
-  z-index: 5;
 }
 
-.pf-card:hover .pf-card-expand {
-  background: rgba(255, 106, 0, 0.12);
-  border-color: rgba(255, 106, 0, 0.25);
-  color: var(--accent-orange);
+.pf-brand-item:hover {
+  transform: translateY(-6px);
 }
 
-/* ─── Logo circle ─── */
-.pf-card-logo {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.pf-brand-logo-wrap {
+  width: 180px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 18px auto 12px;
-  flex-shrink: 0;
-  transition: all 0.3s ease;
-}
-
-.pf-card:hover .pf-card-logo {
-  border-color: var(--accent-orange);
-  background: rgba(255, 106, 0, 0.12);
-}
-
-.pf-card-logo-text {
-  font-family: var(--font-heading);
-  font-size: 0.75rem;
-  font-weight: 800;
-  color: rgba(255, 255, 255, 0.65);
-  letter-spacing: 0.04em;
-  transition: all 0.3s ease;
-}
-
-.pf-card:hover .pf-card-logo-text {
-  color: var(--accent-orange);
-}
-
-/* ─── Image placeholder rect ─── */
-.pf-card-img {
-  flex: 1;
-  border-radius: 12px;
-  background: #ffffff; /* Crisp white background for client logos */
-  margin: 0 4px;
-  min-height: 0;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px; /* Curvy edges */
+  padding: 12px;
   box-sizing: border-box;
+  transition: all 0.3s ease;
   overflow: hidden;
 }
 
-.pf-card-img--cover {
-  padding: 0 !important;
-  background: transparent !important;
+.pf-brand-item:hover .pf-brand-logo-wrap {
+  background: rgba(255, 140, 26, 0.08);
+  border-color: rgba(255, 140, 26, 0.3);
+  box-shadow: 0 0 15px rgba(255, 140, 26, 0.1);
 }
 
-.pf-card-main-img {
-  width: 100%;
-  height: 100%;
+.pf-brand-logo-img {
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
-  transition: transform 0.4s ease;
-}
-
-.pf-card-img--cover .pf-card-main-img {
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-.pf-card:hover .pf-card-main-img {
-  transform: scale(1.06);
-}
-
-/* ─── Bottom info ─── */
-.pf-card-bottom {
-  margin-top: 16px;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.pf-card-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.pf-card-name {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.02em;
-  margin-bottom: 4px;
-  line-height: 1;
-}
-
-.pf-card-cat {
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: #FF6A00;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.pf-card-arrow-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.6);
+  border-radius: 12px; /* Curvy image corners */
+  opacity: 0.8; /* Highly visible by default */
   transition: all 0.3s ease;
-  flex-shrink: 0;
 }
 
-.pf-card:hover .pf-card-arrow-icon {
-  background: var(--accent-orange);
-  color: #000000;
-  transform: rotate(45deg);
-  box-shadow: 0 0 15px rgba(255, 106, 0, 0.5);
+.pf-brand-item:hover .pf-brand-logo-img {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+.pf-brand-name {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.pf-brand-item:hover .pf-brand-name {
+  color: #FFB347;
 }
 
 /* ─── Responsive ─── */
@@ -1293,29 +1193,22 @@ body::after {
   .pf-marquee-container::after {
     width: 60px;
   }
-  .pf-card {
-    width: 170px;
-    height: 260px;
-    padding: 14px 14px 16px;
-    border-radius: 20px;
+  .pf-brand-item {
+    width: 140px;
+    gap: 8px;
   }
-  .pf-card .pf-card-logo {
-    width: 38px;
-    height: 38px;
-    margin: 10px auto 10px;
+  .pf-brand-logo-wrap {
+    width: 125px;
+    height: 75px;
+    border-radius: 14px; /* Curvy edges for mobile */
+    padding: 8px;
   }
-  .pf-card-logo-text {
-    font-size: 0.65rem;
+  .pf-brand-logo-img {
+    border-radius: 8px;
   }
-  .pf-card-name {
-    font-size: 0.95rem;
-  }
-  .pf-card-cat {
-    font-size: 0.55rem;
-  }
-  .pf-card-arrow-icon {
-    width: 24px;
-    height: 24px;
+  .pf-brand-name {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
   }
   .pf-marquee-track {
     gap: 14px;
@@ -1354,12 +1247,14 @@ body::after {
 .services-title {
   position: relative;
   font-family: var(--font-heading);
-  font-size: 3.5rem;
-  font-weight: 800;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
   text-align: center;
   color: var(--text-primary);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   margin: 0;
+  text-transform: uppercase;
 }
 
 .services-subtitle {
@@ -1412,6 +1307,8 @@ body::after {
   transform-origin: 50% 100%; /* Fan from bottom center */
   cursor: pointer;
   will-change: transform, opacity;
+  border-radius: 24px; /* Perfectly round the outer container */
+  overflow: hidden; /* Prevent child bleed-through */
 }
 
 .service-card-inner {
@@ -1482,10 +1379,12 @@ body::after {
 
 .service-card-title {
   font-family: var(--font-heading);
-  font-size: 1.35rem;
+  font-size: 22px;
   font-weight: 700;
+  line-height: 1;
   color: var(--text-primary);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
 .service-card-desc {
@@ -1853,12 +1752,14 @@ body::after {
 
 .about-section-title {
   font-family: var(--font-heading);
-  font-size: 3rem;
-  font-weight: 800;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
   text-align: center;
   color: var(--text-primary);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   margin: 0;
+  text-transform: uppercase;
 }
 
 .about-title-underline {
@@ -1917,18 +1818,81 @@ body::after {
               box-shadow 0.4s var(--transition-smooth);
 }
 
-.card-glow-orange:hover {
-  border-color: rgba(255, 106, 0, 0.3);
+/* About Card Themes: White & Orange */
+.about-large-card.theme-white {
+  background: #FFF4D6 !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+}
+.about-large-card.theme-white .about-card-title,
+.about-large-card.theme-white .about-card-text {
+  color: #050505 !important;
+}
+.about-large-card.theme-white .text-muted-warm {
+  color: rgba(5, 5, 5, 0.65) !important;
+}
+.about-large-card.theme-white:hover {
+  border-color: rgba(255, 244, 214, 0.6) !important;
   box-shadow: 
-    0 30px 60px rgba(0, 0, 0, 0.45),
-    0 0 40px rgba(255, 106, 0, 0.06);
+    0 30px 60px rgba(255, 244, 214, 0.25),
+    0 0 40px rgba(255, 244, 214, 0.08) !important;
 }
 
-.card-glow-amber:hover {
-  border-color: rgba(255, 140, 26, 0.3);
+.about-large-card.theme-orange {
+  background: #FF6A00 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25) !important;
+}
+.about-large-card.theme-orange .about-card-title,
+.about-large-card.theme-orange .about-card-text,
+.about-large-card.theme-orange .about-toggle-nav-label {
+  color: #050505 !important;
+}
+.about-large-card.theme-orange .about-toggle-btn {
+  background: rgba(5, 5, 5, 0.08) !important;
+  border-color: rgba(5, 5, 5, 0.12) !important;
+  color: #050505 !important;
+}
+/* Laptop/desktop specific styling for orange card toggles: active/hover contrast, mobile untouched */
+@media (min-width: 769px) {
+  .about-large-card.theme-orange .about-toggle-btn.active {
+    background: #FFF4D6 !important;
+    border-color: #FFF4D6 !important;
+    color: #050505 !important;
+    box-shadow: 0 4px 15px rgba(255, 244, 214, 0.25) !important;
+  }
+  .about-large-card.theme-orange .about-toggle-btn:hover:not(.active) {
+    background: rgba(5, 5, 5, 0.18) !important;
+    color: #050505 !important;
+  }
+}
+@media (max-width: 768px) {
+  .about-large-card.theme-orange .about-toggle-btn.active {
+    background: #050505 !important;
+    border-color: #050505 !important;
+    color: #FFF4D6 !important;
+    box-shadow: 0 0 15px rgba(5, 5, 5, 0.2) !important;
+  }
+  .about-large-card.theme-orange .about-toggle-btn:hover:not(.active) {
+    background: rgba(5, 5, 5, 0.15) !important;
+    color: #050505 !important;
+  }
+}
+.about-large-card.theme-orange .about-toggle-nav {
+  background: rgba(5, 5, 5, 0.05) !important;
+  border-color: rgba(5, 5, 5, 0.1) !important;
+}
+.about-large-card.theme-orange .about-toggle-arrow {
+  color: #050505 !important;
+}
+.about-large-card.theme-orange .about-toggle-arrow:hover {
+  color: #FFF4D6 !important;
+}
+.about-large-card.theme-orange:hover {
+  border-color: rgba(255, 106, 0, 0.6) !important;
   box-shadow: 
-    0 30px 60px rgba(0, 0, 0, 0.45),
-    0 0 40px rgba(255, 140, 26, 0.06);
+    0 30px 60px rgba(255, 106, 0, 0.4),
+    0 0 40px rgba(255, 106, 0, 0.1) !important;
 }
 
 /* Split content inside card */
@@ -1967,11 +1931,12 @@ body::after {
 
 .about-card-title {
   font-family: var(--font-heading);
-  font-size: 1.6rem;
+  font-size: 22px;
   font-weight: 700;
+  line-height: 1;
   color: var(--text-primary);
-  line-height: 1.35;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
 .about-card-text {
@@ -2167,35 +2132,98 @@ body::after {
 }
 
 @media (max-width: 768px) {
+  .about-section {
+    padding: 50px 20px;
+    overflow: hidden;
+  }
+  .about-row {
+    gap: 30px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .about-large-card {
+    padding: 24px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
   .about-card-split {
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
   .about-card-split.split-reverse {
     flex-direction: column-reverse;
   }
   .about-card-visual {
     width: 100%;
-    max-width: 480px;
+    max-width: 320px;
+    max-height: 200px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .about-card-img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+  }
+  .about-card-title {
+    font-size: 1.2rem;
+    line-height: 1.15;
+  }
+  .about-card-text {
+    font-size: 0.88rem;
+  }
+  .about-small-text {
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
+  .about-small-block {
+    gap: 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  /* Prevent horizontal overflow on narrow mobile screens by wrapping tabs */
+  .about-card-toggles {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .about-toggle-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+  .about-toggle-nav {
+    padding: 4px 8px;
   }
 }
 
 @media (max-width: 480px) {
   .about-section {
-    padding: 60px 16px;
+    padding: 40px 14px;
   }
   .about-large-card {
-    padding: 24px;
-    border-radius: 28px;
-  }
-  .about-card-title {
-    font-size: 1.35rem;
-  }
-  .about-small-text {
-    font-size: 1.2rem;
+    padding: 20px;
+    border-radius: 20px;
   }
   .about-card-visual {
-    border-radius: 14px;
+    max-width: 280px;
+    max-height: 160px;
+  }
+  .about-card-img {
+    max-height: 160px;
+  }
+  .about-card-title {
+    font-size: 1.1rem;
+  }
+  .about-small-text {
+    font-size: 1.05rem;
   }
 }
 
@@ -2636,11 +2664,13 @@ body::after {
 
 .process-card-title {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
   color: var(--text-primary);
   margin-bottom: 12px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
 .process-card-desc {
@@ -3046,6 +3076,262 @@ body::after {
 
 .ind-focus-card:active .ind-cta-arrow {
   transform: translateX(4px);
+}
+
+/* ==========================================================================
+   Services Themed Color Cards (Desktop & Mobile)
+   ========================================================================== */
+
+/* 1. Vivid Orange Service Card */
+.service-card.theme-orange {
+  background: #FF6A00 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  border-radius: 24px;
+}
+.service-card.theme-orange .service-card-inner {
+  background: #FF6A00 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+.service-card.theme-orange .service-card-title,
+.service-card.theme-orange .service-card-desc,
+.service-card.theme-orange .service-card-num,
+.service-card.theme-orange .service-pill-btn {
+  color: #050505 !important;
+}
+.service-card.theme-orange .service-icon-bg {
+  background: #050505 !important;
+  color: #FFF4D6 !important;
+}
+.service-card.theme-orange .service-pill-btn {
+  background: rgba(5, 5, 5, 0.08) !important;
+  border-color: rgba(5, 5, 5, 0.12) !important;
+}
+.service-card.theme-orange:hover .service-pill-btn {
+  background: #050505 !important;
+  color: #F5F5F5 !important;
+  border-color: #050505 !important;
+}
+.service-card.theme-orange:hover .pill-arrow {
+  color: #F5F5F5 !important;
+}
+/* Orange Glow on Hover / Active */
+@media (min-width: 769px) {
+  .service-card.theme-orange:hover .service-card-inner {
+    border-color: rgba(255, 106, 0, 0.75) !important;
+    box-shadow: 
+      0 30px 60px rgba(255, 106, 0, 0.5),
+      0 0 20px rgba(255, 106, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+  }
+}
+@media (max-width: 768px) {
+  .service-card.theme-orange:hover .service-card-inner {
+    border-color: rgba(255, 106, 0, 0.6) !important;
+    box-shadow: 
+      0 30px 60px rgba(255, 106, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  }
+}
+.service-card.theme-orange.top-card-glow {
+  box-shadow: 
+    0 20px 45px rgba(255, 106, 0, 0.4),
+    0 0 1px rgba(255, 106, 0, 0.8) !important;
+  border-color: rgba(255, 106, 0, 0.5) !important;
+}
+
+/* 2. Warm White Service Card */
+.service-card.theme-white {
+  background: #FFF4D6 !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+  border-radius: 24px;
+}
+.service-card.theme-white .service-card-inner {
+  background: #FFF4D6 !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+.service-card.theme-white .service-card-title,
+.service-card.theme-white .service-card-desc,
+.service-card.theme-white .service-card-num,
+.service-card.theme-white .service-pill-btn {
+  color: #050505 !important;
+}
+.service-card.theme-white .service-icon-bg {
+  background: #FF6A00 !important;
+  color: #FFF4D6 !important;
+}
+.service-card.theme-white .service-pill-btn {
+  background: rgba(5, 5, 5, 0.08) !important;
+  border-color: rgba(5, 5, 5, 0.12) !important;
+}
+.service-card.theme-white:hover .service-pill-btn {
+  background: #050505 !important;
+  color: #F5F5F5 !important;
+  border-color: #050505 !important;
+}
+.service-card.theme-white:hover .pill-arrow {
+  color: #F5F5F5 !important;
+}
+/* Warm White Glow on Hover / Active */
+@media (min-width: 769px) {
+  .service-card.theme-white:hover .service-card-inner {
+    border-color: rgba(255, 244, 214, 0.75) !important;
+    box-shadow: 
+      0 30px 60px rgba(255, 244, 214, 0.45),
+      0 0 20px rgba(255, 244, 214, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+  }
+}
+@media (max-width: 768px) {
+  .service-card.theme-white:hover .service-card-inner {
+    border-color: rgba(255, 244, 214, 0.6) !important;
+    box-shadow: 
+      0 30px 60px rgba(255, 244, 214, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  }
+}
+.service-card.theme-white.top-card-glow {
+  box-shadow: 
+    0 20px 45px rgba(255, 244, 214, 0.35),
+    0 0 1px rgba(255, 244, 214, 0.6) !important;
+  border-color: rgba(255, 244, 214, 0.4) !important;
+}
+
+/* 3. Charcoal Service Card */
+.service-card.theme-charcoal {
+  background: #111111 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  border-radius: 24px;
+}
+.service-card.theme-charcoal .service-card-inner {
+  background: #111111 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+.service-card.theme-charcoal .service-card-title,
+.service-card.theme-charcoal .service-card-desc,
+.service-card.theme-charcoal .service-pill-btn {
+  color: #F5F5F5 !important;
+}
+.service-card.theme-charcoal .service-card-num {
+  color: rgba(255, 255, 255, 0.15) !important;
+}
+.service-card.theme-charcoal .service-icon-bg {
+  background: #FF8C1A !important;
+  color: #050505 !important;
+}
+.service-card.theme-charcoal .service-pill-btn {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+.service-card.theme-charcoal:hover .service-pill-btn {
+  background: rgba(255, 106, 0, 0.15) !important;
+  border-color: rgba(255, 106, 0, 0.3) !important;
+  color: var(--text-primary) !important;
+}
+/* Amber Glow on Hover / Active */
+@media (min-width: 769px) {
+  .service-card.theme-charcoal:hover .service-card-inner {
+    border-color: rgba(255, 140, 26, 0.65) !important;
+    box-shadow: 
+      0 30px 60px rgba(255, 140, 26, 0.45),
+      0 0 20px rgba(255, 140, 26, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  }
+}
+@media (max-width: 768px) {
+  .service-card.theme-charcoal:hover .service-card-inner {
+    border-color: rgba(255, 140, 26, 0.4) !important;
+    box-shadow: 
+      0 30px 60px rgba(255, 140, 26, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  }
+}
+.service-card.theme-charcoal.top-card-glow {
+  box-shadow: 
+    0 20px 45px rgba(255, 140, 26, 0.25),
+    0 0 1px rgba(255, 140, 26, 0.6) !important;
+  border-color: rgba(255, 140, 26, 0.3) !important;
+}
+
+/* 4. Jet Black Service Card */
+.service-card.theme-black {
+  background: #050505 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  border-radius: 24px;
+}
+.service-card.theme-black .service-card-inner {
+  background: #050505 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+.service-card.theme-black .service-card-title,
+.service-card.theme-black .service-card-desc,
+.service-card.theme-black .service-pill-btn {
+  color: #F5F5F5 !important;
+}
+.service-card.theme-black .service-card-num {
+  color: rgba(255, 255, 255, 0.15) !important;
+}
+.service-card.theme-black .service-icon-bg {
+  background: #FF6A00 !important;
+  color: #FFF4D6 !important;
+}
+.service-card.theme-black .service-pill-btn {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+.service-card.theme-black:hover .service-pill-btn {
+  background: rgba(255, 106, 0, 0.15) !important;
+  border-color: rgba(255, 106, 0, 0.3) !important;
+  color: var(--text-primary) !important;
+}
+/* Orange Glow on Hover / Active */
+@media (min-width: 769px) {
+  .service-card.theme-black:hover .service-card-inner {
+    border-color: rgba(255, 106, 0, 0.6) !important;
+    box-shadow: 
+      0 30px 60px rgba(255, 106, 0, 0.45),
+      0 0 20px rgba(255, 106, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  }
+}
+@media (max-width: 768px) {
+  .service-card.theme-black:hover .service-card-inner {
+    border-color: rgba(255, 106, 0, 0.4) !important;
+    box-shadow: 
+      0 30px 60px rgba(255, 106, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  }
+}
+.service-card.theme-black.top-card-glow {
+  box-shadow: 
+    0 20px 45px rgba(255, 106, 0, 0.3),
+    0 0 1px rgba(255, 106, 0, 0.6) !important;
+  border-color: rgba(255, 106, 0, 0.3) !important;
+}
+
+/* ==========================================================================
+   Section Background Gradients (Reference Design-Inspired)
+   ========================================================================== */
+
+/* Set all section containers to transparent to reveal the single continuous background gradient */
+.hero,
+.pf-section,
+.about-section,
+.services-section,
+.wcu-section,
+.process-section,
+.industries-section,
+.case-studies-section,
+.testimonials-section,
+.contact-section,
+.footer-section {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
 
 

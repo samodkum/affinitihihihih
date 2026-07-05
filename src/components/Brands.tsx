@@ -13,7 +13,7 @@ const brands: BrandCard[] = [
   { id: 1, name: 'WIPRO', category: 'TECH CONSULTING', logo: 'https://res.cloudinary.com/dzc1dckta/image/upload/v1783176575/7fe50562-401b-4b07-83e0-0403e8623a7d_zlkafn.png', initial: 'WP' },
   { id: 2, name: 'USHA', category: 'PARTNER CLIENT', logo: 'https://res.cloudinary.com/dzc1dckta/image/upload/v1783176459/09268353-e979-4e36-b321-f47c29402a77_duggis.png', initial: 'U' },
   { id: 3, name: "MURLI'S", category: 'FOOD & HOSPITALITY', logo: 'https://res.cloudinary.com/dzc1dckta/image/upload/v1783176447/abc13492-b3f6-4698-aa8d-1e4963b60a56_betacv.png', initial: 'MR' },
-  { id: 4, name: "KARIM'S", category: 'FINE DINING', logo: 'https://res.cloudinary.com/dzc1dckta/image/upload/v1783176447/abc13492-b3f6-4698-aa8d-1e4963b60a56_betacv.png', cardImg: 'https://res.cloudinary.com/dzc1dckta/image/upload/v1783176433/01c4bde0-35eb-49d1-a84d-e2398dcd88bd_x55pkj.png', initial: 'KM' },
+  { id: 4, name: "KARIM'S", category: 'FINE DINING', logo: 'https://res.cloudinary.com/dzc1dckta/image/upload/v1783176433/01c4bde0-35eb-49d1-a84d-e2398dcd88bd_x55pkj.png', cardImg: 'https://res.cloudinary.com/dzc1dckta/image/upload/v1783176433/01c4bde0-35eb-49d1-a84d-e2398dcd88bd_x55pkj.png', initial: 'KM' },
   { id: 5, name: 'ITC LTD', category: 'CONGLOMERATE', logo: 'https://res.cloudinary.com/dzc1dckta/image/upload/v1783176329/796af120-ea7e-42a3-b718-bfb58202b343_uejoyf.png', initial: 'ITC' },
   { id: 6, name: 'HALDIRAM', category: 'PACKAGED FOODS', logo: 'https://res.cloudinary.com/dzc1dckta/image/upload/v1783176114/a6c82763-2b7e-4441-8782-e51c5c812f2e_nzkqri.png', initial: 'HR' },
   { id: 7, name: 'GO ZERO', category: 'FOOD & BEVERAGE', logo: 'https://res.cloudinary.com/dzc1dckta/image/upload/v1783176107/05ff8729-9e5f-4052-a5bc-de8bd13c6d2f_vcr86b.png', initial: 'GZ' },
@@ -103,28 +103,15 @@ export default function Brands() {
       <div className="pf-marquee-container">
         <div className="pf-marquee-track">
           {doubledBrands.map((brand, idx) => (
-            <div key={`${brand.id}-${idx}`} className="pf-card">
-              {/* Brand Logo Initials (Clean high-tech badge) */}
-              <div className="pf-card-logo">
-                <span className="pf-card-logo-text">{brand.initial}</span>
-              </div>
-
-              {/* Visual Card Image area (Centered logo or full card visual) */}
-              <div className={`pf-card-img ${brand.cardImg ? 'pf-card-img--cover' : ''}`}>
+            <div key={`${brand.id}-${idx}`} className="pf-brand-item">
+              <div className="pf-brand-logo-wrap">
                 <img 
-                  src={brand.cardImg || brand.logo} 
-                  alt={`${brand.name} visual`} 
-                  className="pf-card-main-img" 
+                  src={brand.logo} 
+                  alt={`${brand.name} logo`} 
+                  className="pf-brand-logo-img" 
                 />
               </div>
-
-              {/* Bottom Brand Info */}
-              <div className="pf-card-bottom">
-                <div className="pf-card-info">
-                  <div className="pf-card-name">{brand.name}</div>
-                  <div className="pf-card-cat">{brand.category}</div>
-                </div>
-              </div>
+              <div className="pf-brand-name">{brand.name}</div>
             </div>
           ))}
         </div>

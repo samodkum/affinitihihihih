@@ -17,7 +17,10 @@ export default function About() {
   const row2BlockRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia();
+
+    // ─── DESKTOP / TABLET (min-width: 681px) ──────────────────────────────────
+    mm.add("(min-width: 681px)", () => {
       // Title and underline drawing
       gsap.fromTo(
         titleRef.current,
@@ -113,10 +116,103 @@ export default function About() {
           );
         }
       });
+    });
 
-    }, sectionRef);
+    // ─── MOBILE (max-width: 680px) ───────────────────────────────────────────
+    mm.add("(max-width: 680px)", () => {
+      // Snappy lightweight animations on mobile to prevent delays/GPU lag
+      gsap.fromTo(
+        titleRef.current,
+        { opacity: 0, y: 15 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: 'top 95%',
+          }
+        }
+      );
 
-    return () => ctx.revert();
+      gsap.fromTo(
+        underlineRef.current,
+        { width: '0%', opacity: 0 },
+        {
+          width: '120px',
+          opacity: 1,
+          duration: 0.6,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: 'top 95%',
+          }
+        }
+      );
+
+      gsap.fromTo(
+        row1CardRef.current,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: row1CardRef.current,
+            start: 'top 95%',
+          }
+        }
+      );
+
+      gsap.fromTo(
+        row1BlockRef.current,
+        { opacity: 0, y: 15 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: row1BlockRef.current,
+            start: 'top 95%',
+          }
+        }
+      );
+
+      gsap.fromTo(
+        row2CardRef.current,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: row2CardRef.current,
+            start: 'top 95%',
+          }
+        }
+      );
+
+      gsap.fromTo(
+        row2BlockRef.current,
+        { opacity: 0, y: 15 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: row2BlockRef.current,
+            start: 'top 95%',
+          }
+        }
+      );
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (
@@ -131,7 +227,7 @@ export default function About() {
         {/* Row 1 */}
         <div className="about-row about-row-1">
           {/* Large Container Left (Image Left, Text Right) */}
-          <div ref={row1CardRef} className="about-large-card card-glow-orange">
+          <div ref={row1CardRef} className="about-large-card theme-white">
             <div className="about-card-split">
               <div className="about-card-visual">
                 <img
@@ -176,7 +272,7 @@ export default function About() {
           </div>
 
           {/* Large Container Right (Text Left, Image Right) */}
-          <div ref={row2CardRef} className="about-large-card card-glow-amber">
+          <div ref={row2CardRef} className="about-large-card theme-orange">
             <div className="about-card-split split-reverse">
               <div className="about-card-info">
                 <h3 className="about-card-title">High-performance execution meets creative design</h3>

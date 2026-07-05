@@ -186,8 +186,11 @@
 
 .cs-title-expanded {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  line-height: 1.2;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
   margin-bottom: 16px;
   color: white;
 }
@@ -644,5 +647,172 @@
   .cs-back-quote span {
     font-size: 0.75rem;
   }
+}
+
+/* ==========================================================================
+   Color Theme Customizations for Case Studies Cards
+   ========================================================================== */
+
+/* Theme 1: Vivid Orange Card */
+.cs-accordion-card.theme-orange .cs-card-inner {
+  background: #FF6A00 !important;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+.cs-accordion-card.theme-orange .cs-collapsed-title h3,
+.cs-accordion-card.theme-orange .cs-title-expanded,
+.cs-accordion-card.theme-orange .cs-industry,
+.cs-accordion-card.theme-orange .cs-challenge-preview,
+.cs-accordion-card.theme-orange .cs-explore-btn {
+  color: #050505 !important;
+}
+.cs-accordion-card.theme-orange .cs-client {
+  color: #2A1208 !important; /* Burnt Brown accent */
+}
+.cs-accordion-card.theme-orange .cs-metric-badge {
+  background: #050505 !important;
+  color: #FFF4D6 !important;
+  border-color: #050505 !important;
+}
+.cs-accordion-card.theme-orange .cs-expanded-content {
+  background: transparent !important;
+}
+.cs-accordion-card.theme-orange .cs-explore-btn svg {
+  color: #050505 !important;
+}
+
+/* Theme 2: Warm White Card */
+.cs-accordion-card.theme-white .cs-card-inner {
+  background: #FFF4D6 !important;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+.cs-accordion-card.theme-white .cs-collapsed-title h3,
+.cs-accordion-card.theme-white .cs-title-expanded,
+.cs-accordion-card.theme-white .cs-industry,
+.cs-accordion-card.theme-white .cs-challenge-preview,
+.cs-accordion-card.theme-white .cs-explore-btn {
+  color: #050505 !important;
+}
+.cs-accordion-card.theme-white .cs-client {
+  color: #FF6A00 !important; /* Orange accent */
+}
+.cs-accordion-card.theme-white .cs-metric-badge {
+  background: #FF6A00 !important;
+  color: #FFF4D6 !important;
+  border-color: #FF6A00 !important;
+}
+.cs-accordion-card.theme-white .cs-expanded-content {
+  background: transparent !important;
+}
+.cs-accordion-card.theme-white .cs-explore-btn svg {
+  color: #050505 !important;
+}
+
+/* Theme 3: Charcoal Card */
+.cs-accordion-card.theme-charcoal .cs-card-inner {
+  background: #111111 !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.cs-accordion-card.theme-charcoal .cs-collapsed-title h3,
+.cs-accordion-card.theme-charcoal .cs-title-expanded,
+.cs-accordion-card.theme-charcoal .cs-industry,
+.cs-accordion-card.theme-charcoal .cs-challenge-preview,
+.cs-accordion-card.theme-charcoal .cs-explore-btn {
+  color: #F5F5F5 !important;
+}
+.cs-accordion-card.theme-charcoal .cs-client {
+  color: #FFB347 !important; /* Golden Orange highlight */
+}
+.cs-accordion-card.theme-charcoal .cs-metric-badge {
+  background: rgba(255, 106, 0, 0.15) !important;
+  color: #FFB347 !important;
+  border-color: rgba(255, 106, 0, 0.3) !important;
+}
+.cs-accordion-card.theme-charcoal .cs-explore-btn svg {
+  color: #F5F5F5 !important;
+}
+
+/* Theme 4: Jet Black Card */
+.cs-accordion-card.theme-black .cs-card-inner {
+  background: #050505 !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.cs-accordion-card.theme-black .cs-collapsed-title h3,
+.cs-accordion-card.theme-black .cs-title-expanded,
+.cs-accordion-card.theme-black .cs-industry,
+.cs-accordion-card.theme-black .cs-challenge-preview,
+.cs-accordion-card.theme-black .cs-explore-btn {
+  color: #F5F5F5 !important;
+}
+.cs-accordion-card.theme-black .cs-client {
+  color: #FF8C1A !important; /* Amber highlight */
+}
+.cs-accordion-card.theme-black .cs-metric-badge {
+  background: rgba(255, 140, 26, 0.15) !important;
+  color: #FF8C1A !important;
+  border-color: rgba(255, 140, 26, 0.3) !important;
+}
+.cs-accordion-card.theme-black .cs-explore-btn svg {
+  color: #F5F5F5 !important;
+}
+
+
+/* Modal 3D Card Front Face Themes */
+.cs-3d-card.theme-orange .cs-card-front {
+  background: #FF6A00 !important;
+  color: #050505 !important;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+.cs-3d-card.theme-orange .cs-card-front h3 {
+  color: #050505 !important;
+}
+.cs-3d-card.theme-orange .cs-card-front .cs-meta span {
+  color: #2A1208 !important;
+}
+
+.cs-3d-card.theme-white .cs-card-front {
+  background: #FFF4D6 !important;
+  color: #050505 !important;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+.cs-3d-card.theme-white .cs-card-front h3 {
+  color: #050505 !important;
+}
+.cs-3d-card.theme-white .cs-card-front .cs-meta span {
+  color: #FF6A00 !important;
+}
+
+.cs-3d-card.theme-charcoal .cs-card-front {
+  background: #111111 !important;
+  color: #F5F5F5 !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.cs-3d-card.theme-charcoal .cs-card-front h3 {
+  color: #F5F5F5 !important;
+}
+.cs-3d-card.theme-charcoal .cs-card-front .cs-meta span {
+  color: #FFB347 !important;
+}
+
+.cs-3d-card.theme-black .cs-card-front {
+  background: #050505 !important;
+  color: #F5F5F5 !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.cs-3d-card.theme-black .cs-card-front h3 {
+  color: #F5F5F5 !important;
+}
+.cs-3d-card.theme-black .cs-card-front .cs-meta span {
+  color: #FF8C1A !important;
+}
+
+
+/* Modal Back Face Adjustments */
+.cs-card-back {
+  background: #111111 !important; /* Secondary Background Charcoal */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.cs-back-quote {
+  background: rgba(255, 106, 0, 0.04) !important;
+  border-left: 3px solid #FF6A00 !important; /* Vivid Orange left border */
 }
 

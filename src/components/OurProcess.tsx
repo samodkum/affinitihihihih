@@ -183,18 +183,31 @@ export default function OurProcess() {
 
     // ─── MOBILE (max-width: 680px) ───────────────────────────────────────────
     mm.add("(max-width: 680px)", () => {
-      gsap.set(titleRef.current, { xPercent: -50, yPercent: -50, opacity: 0 });
+      // Set the container to be visible initially, and let the entrance scrub the words.
+      gsap.set(titleRef.current, { xPercent: -50, yPercent: -50, opacity: 1 });
+      gsap.set(wordProcessRef.current, { transformPerspective: 800 });
 
       // Title entrance (before pin kicks in)
-      gsap.fromTo(
-        titleRef.current,
-        { scale: 0.8, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.8, ease: 'power2.out', scrollTrigger: {
+      const entranceTl = gsap.timeline({
+        scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top 95%',
           end: 'top 70%',
           scrub: 0.5,
-        }}
+        },
+      });
+
+      entranceTl.fromTo(
+        wordOurRef.current,
+        { scale: 0.4, rotate: -120, opacity: 0 },
+        { scale: 1, rotate: 0, opacity: 1, duration: 1.2, ease: 'back.out(1.4)' }
+      );
+
+      entranceTl.fromTo(
+        wordProcessRef.current,
+        { scale: 0.4, rotate: -120, opacity: 0 },
+        { scale: 1, rotate: 0, opacity: 1, duration: 1.2, ease: 'back.out(1.4)' },
+        '-=0.6'
       );
 
       const mainTl = gsap.timeline({
@@ -209,7 +222,7 @@ export default function OurProcess() {
         },
       });
 
-      // Fade title out
+      // Fade title out starting later (at 0.8) so it stays longer and doesn't conflict with entrance
       mainTl.to(
         titleRef.current,
         {
@@ -219,7 +232,7 @@ export default function OurProcess() {
           duration: 1.5,
           ease: 'power2.inOut',
         },
-        0
+        0.8
       );
 
       // Track slides horizontally
@@ -262,7 +275,7 @@ export default function OurProcess() {
         if (!card) return;
         mainTl.fromTo(
           card,
-          { opacity: 1, scale: 0.92 },
+          { opacity: 0, scale: 0.92 },
           { opacity: 1, scale: 1, duration: 0.5, ease: 'power2.out' },
           1.0 + idx * 0.8
         );

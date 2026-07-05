@@ -18,7 +18,10 @@ export default function WhyChooseUs() {
   const rightCardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia();
+
+    // ─── DESKTOP / TABLET (min-width: 681px) ──────────────────────────────────
+    mm.add("(min-width: 681px)", () => {
       // Perspective container set-up for 3D flip animation on CHOOSE
       gsap.set(wordChooseRef.current, { transformPerspective: 800 });
 
@@ -97,9 +100,68 @@ export default function WhyChooseUs() {
         { scale: 1, opacity: 1, duration: 0.8, ease: 'back.out(1.2)' },
         '-=0.4'
       );
-    }, containerRef);
+    });
 
-    return () => ctx.revert();
+    // ─── MOBILE (max-width: 680px) ───────────────────────────────────────────
+    mm.add("(max-width: 680px)", () => {
+      // Perspective container set-up
+      gsap.set(wordChooseRef.current, { transformPerspective: 800 });
+
+      // Title entrance (plays on enter once, no pin, no heavy scrub)
+      gsap.fromTo(
+        [wordWhyRef.current, wordChooseRef.current, wordUsRef.current],
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: titleWrapperRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          }
+        }
+      );
+
+      // Layout container entrance (no pin, no heavy scrub)
+      gsap.fromTo(
+        [card1Ref.current, card2Ref.current, card3Ref.current],
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: layoutContainerRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          }
+        }
+      );
+
+      // Right description card entrance
+      gsap.fromTo(
+        rightCardRef.current,
+        { scale: 0.95, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.6,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: rightCardRef.current,
+            start: 'top 90%',
+            toggleActions: 'play none none none',
+          }
+        }
+      );
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (
