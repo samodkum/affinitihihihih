@@ -277,7 +277,7 @@ export default function OurProcess() {
           card,
           { opacity: 0, scale: 0.92 },
           { opacity: 1, scale: 1, duration: 0.5, ease: 'power2.out' },
-          1.0 + idx * 0.8
+          0.3 + idx * 1.04
         );
 
         gsap.to(card, {
