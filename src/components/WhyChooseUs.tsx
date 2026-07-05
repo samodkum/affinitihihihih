@@ -67,6 +67,7 @@ export default function WhyChooseUs() {
           scrub: 0.5,        // Fast responsive scrub
           pin: true,         // Pin section
           anticipatePin: 1,
+          invalidateOnRefresh: true,
         },
       });
 

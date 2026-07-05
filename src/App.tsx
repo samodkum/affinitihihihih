@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Preloader from './components/Preloader';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -12,9 +12,27 @@ import CaseStudies from './components/CaseStudies';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import MobileMenu from './components/MobileMenu';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Global configuration: ignore mobile vertical resizes (e.g. url bar hide/show) to prevent jumps
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 function App() {
   const [videoUrl, setVideoUrl] = useState<string>('');
+
+  useEffect(() => {
+    if (videoUrl) {
+      // Small timeout to allow the preloader slide-out transition to complete (1.2s in CSS)
+      // and for the React layout to settle, then refresh ScrollTrigger positions.
+      const timer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [videoUrl]);
 
   return (
     <div className="app-container">
