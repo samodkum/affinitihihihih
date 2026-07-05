@@ -222,17 +222,17 @@ export default function OurProcess() {
         },
       });
 
-      // Fade title out starting later (at 0.8) so it stays longer and doesn't conflict with entrance
+      // Fade title out quickly at the start of scroll so it is gone when the first card appears
       mainTl.to(
         titleRef.current,
         {
           opacity: 0,
           scale: 0.7,
           x: '-50vw',
-          duration: 1.5,
+          duration: 1.0,
           ease: 'power2.inOut',
         },
-        0.8
+        0.1
       );
 
       // Track slides horizontally
