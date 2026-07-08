@@ -148,9 +148,12 @@ export default function Preloader({ onComplete }: PreloaderProps) {
     };
   }, []);
 
-  // Greetings word rotation loop (280ms per word)
+  // Greetings word rotation loop (400ms on mobile, 280ms on desktop)
   useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
+    const intervalDuration = isMobile ? 400 : 280;
     const totalWords = greetings.length;
+    
     const interval = setInterval(() => {
       setWordIndex(prev => {
         if (prev < totalWords - 1) {
@@ -161,7 +164,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
           return prev;
         }
       });
-    }, 280);
+    }, intervalDuration);
 
     return () => clearInterval(interval);
   }, []);
