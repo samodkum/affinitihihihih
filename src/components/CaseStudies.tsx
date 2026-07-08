@@ -300,6 +300,8 @@ const CaseStudies: React.FC = () => {
   const [activeCard, setActiveCard] = useState<CaseStudy | null>(null);
   
   const scrollTrackRef = useRef<HTMLDivElement>(null);
+  const isTouchActionRef = useRef<boolean>(false);
+  const wasExpandedRef = useRef<boolean>(false);
 
   const scrollLeft = () => {
     if (scrollTrackRef.current) {
@@ -314,8 +316,38 @@ const CaseStudies: React.FC = () => {
   };
 
   const handleCardClick = (study: CaseStudy) => {
+    if (isTouchActionRef.current) {
+      isTouchActionRef.current = false; // Reset
+      if (!wasExpandedRef.current) {
+        // If it wasn't expanded when touch started, just expand it (which touchstart did)
+        // and prevent opening the modal.
+        return;
+      }
+    }
     setActiveCard(study);
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  };
+
+  const handleTouchStart = (id: string) => {
+    isTouchActionRef.current = true;
+    wasExpandedRef.current = (hoveredId === id);
+    setHoveredId(id);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (e.touches.length === 0) return;
+    const touch = e.touches[0];
+    const element = document.elementFromPoint(touch.clientX, touch.clientY);
+    if (element) {
+      const card = element.closest('.cs-accordion-card');
+      if (card) {
+        const cardId = card.getAttribute('data-id');
+        if (cardId && cardId !== hoveredId) {
+          setHoveredId(cardId);
+          wasExpandedRef.current = false; // Sliding onto a new card counts as not expanded initially
+        }
+      }
+    }
   };
 
   const handleCloseActive = () => {
@@ -346,7 +378,11 @@ const CaseStudies: React.FC = () => {
       <div className="cs-carousel-container" onMouseLeave={handleMouseLeaveTrack}>
         {/* Scroll Track & Mask */}
         <div className="cs-scroll-mask">
-          <div className="cs-scroll-track" ref={scrollTrackRef}>
+          <div 
+            className="cs-scroll-track" 
+            ref={scrollTrackRef}
+            onTouchMove={handleTouchMove}
+          >
             {caseStudiesData.map((study, idx) => {
               const isHovered = hoveredId === study.id;
               const themeClass = themes[idx % themes.length];
@@ -354,8 +390,10 @@ const CaseStudies: React.FC = () => {
               return (
                 <div 
                   key={study.id}
+                  data-id={study.id}
                   className={`cs-accordion-card ${isHovered ? 'expanded' : 'collapsed'} ${themeClass}`}
                   onMouseEnter={() => setHoveredId(study.id)}
+                  onTouchStart={() => handleTouchStart(study.id)}
                   onClick={() => handleCardClick(study)}
                 >
                   <div className="cs-card-inner">
