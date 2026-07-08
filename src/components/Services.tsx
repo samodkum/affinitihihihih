@@ -295,7 +295,7 @@ export default function Services() {
           Our systems streamline growth operations, giving ambitious brands the infrastructure to scale.
         </p>
         <div className="services-cta-group">
-          <a href="#connect" className="services-btn-primary">
+          <a href="#contact" className="services-btn-primary">
             Launch systems
           </a>
           <a href="#portfolio" className="services-btn-secondary">
