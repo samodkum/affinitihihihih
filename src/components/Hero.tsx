@@ -163,21 +163,20 @@ export default function Hero({ preloadedVideoUrl }: HeroProps) {
         {/* Text Block (Title & Subtext) */}
         <div ref={textContainerRef} className="hero-text-block">
           <h1 className="hero-main-title">
-            Systems simplify<br />
-            growth for modern<br />
-            brands.
+            Marketing That Helps<br />
+            Your Business Grow
           </h1>
           <p className="hero-subtext">
-            Affinity Kraft Solution enables ambitious businesses to launch and automate the marketing systems that scale revenue, with data.
+            Increase your online presence, attract quality leads, boost sales, and achieve long-term growth with marketing strategies that deliver real results.
           </p>
 
           {/* CTA Buttons */}
           <div className="hero-cta-buttons">
             <button className="cta-btn-primary">
-              Book a demo <ArrowRight size={16} />
+              Book Free Consultation <ArrowRight size={16} />
             </button>
             <button className="cta-btn-secondary">
-              Learn more <ArrowRight size={16} />
+              Our Services <ArrowRight size={16} />
             </button>
           </div>
         </div>
@@ -185,23 +184,33 @@ export default function Hero({ preloadedVideoUrl }: HeroProps) {
         {/* Stats Cards Row */}
         <div className="hero-stats-row">
           <div className="hero-stat-card">
-            <span className="hero-stat-label">Spend Managed</span>
-            <div className="hero-stat-value">$ 2.4M</div>
+            <div className="hero-stat-value">₹55L+</div>
+            <span className="hero-stat-label">Engagement Structured</span>
           </div>
 
           <div className="hero-stat-card">
-            <span className="hero-stat-label">Leads Driven</span>
-            <div className="hero-stat-value">14.2K</div>
+            <div className="hero-stat-value">55%</div>
+            <span className="hero-stat-label">Max CAC Reduction</span>
           </div>
 
           <div className="hero-stat-card">
-            <span className="hero-stat-label">Average ROAS</span>
-            <div className="hero-stat-value">4.2x</div>
+            <div className="hero-stat-value">220%</div>
+            <span className="hero-stat-label">CLTV Uplift</span>
           </div>
 
           <div className="hero-stat-card">
-            <span className="hero-stat-label">CAC Cut</span>
-            <div className="hero-stat-value">-35%</div>
+            <div className="hero-stat-value">13+</div>
+            <span className="hero-stat-label">Service Categories</span>
+          </div>
+
+          <div className="hero-stat-card hero-stat-card-extra">
+            <div className="hero-stat-value">50+</div>
+            <span className="hero-stat-label">Offerings</span>
+          </div>
+
+          <div className="hero-stat-card hero-stat-card-extra">
+            <div className="hero-stat-value">6</div>
+            <span className="hero-stat-label">Growth Pillars</span>
           </div>
         </div>
       </div>

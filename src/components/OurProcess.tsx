@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Search, Compass, Sliders, Zap } from 'lucide-react';
+import { Compass, Zap, BarChart3, Rocket, PhoneCall, ClipboardList } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,30 +17,44 @@ const steps: ProcessStep[] = [
   {
     id: 1,
     number: '01',
-    title: 'Discovery',
-    desc: 'We conduct a deep dive into your current analytics, operational workflows, and growth bottlenecks to locate high-leverage scaling opportunities.',
-    icon: <Search className="process-icon-svg" size={24} />,
+    title: 'Discovery Call',
+    desc: 'We begin by understanding your business, goals, target audience, and current challenges.',
+    icon: <PhoneCall className="process-icon-svg" size={24} />,
   },
   {
     id: 2,
     number: '02',
-    title: 'Strategy',
-    desc: 'Designing a bespoke digital roadmap that integrates media acquisition, tailored conversions, and custom automated workflows.',
+    title: 'Research & Strategy',
+    desc: 'Our team studies your industry, competitors, and market to create a strategy that fits your business.',
     icon: <Compass className="process-icon-svg" size={24} />,
   },
   {
     id: 3,
     number: '03',
-    title: 'Implementation',
-    desc: 'Deploying high-impact creative elements, API integrations, real-time BI dashboards, and bulletproof marketing automation setups.',
-    icon: <Sliders className="process-icon-svg" size={24} />,
+    title: 'Planning',
+    desc: 'We prepare a clear action plan with timelines, creative direction, campaigns, and deliverables.',
+    icon: <ClipboardList className="process-icon-svg" size={24} />,
   },
   {
     id: 4,
     number: '04',
+    title: 'Execution',
+    desc: 'Once everything is ready, we launch your campaigns and start implementing the strategy.',
+    icon: <Rocket className="process-icon-svg" size={24} />,
+  },
+  {
+    id: 5,
+    number: '05',
     title: 'Optimization',
-    desc: 'Applying rigorous A/B testing, fine-tuning user retention flows, and optimizing attribution models to unlock compounding ROI.',
+    desc: 'We continuously monitor performance, test new ideas, and make improvements to achieve better results.',
     icon: <Zap className="process-icon-svg" size={24} />,
+  },
+  {
+    id: 6,
+    number: '06',
+    title: 'Reporting & Growth',
+    desc: "You'll receive regular performance reports along with recommendations to help your business grow further.",
+    icon: <BarChart3 className="process-icon-svg" size={24} />,
   },
 ];
 
@@ -67,7 +81,7 @@ export default function OurProcess() {
       });
     }
 
-    const trackVal = trackRef.current ? trackRef.current.offsetWidth : 2600;
+    const trackVal = trackRef.current ? trackRef.current.offsetWidth : 3800;
     const getScrollDistance = () => {
       return trackVal - window.innerWidth;
     };
@@ -106,7 +120,7 @@ export default function OurProcess() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top top',
-          end: '+=300%',
+          end: '+=450%',
           scrub: 1,
           pin: true,
           anticipatePin: 1,
@@ -131,7 +145,7 @@ export default function OurProcess() {
         { x: '35vw' },
         {
           x: () => -getScrollDistance(),
-          duration: 4.5,
+          duration: 6.5,
           ease: 'none',
         },
         0
@@ -148,7 +162,7 @@ export default function OurProcess() {
         glowPathRef.current,
         {
           strokeDashoffset: 0,
-          duration: 4.0,
+          duration: 6.0,
           ease: 'none',
         },
         0.8
@@ -162,7 +176,7 @@ export default function OurProcess() {
           card,
           { opacity: 0, scale: 0.85 },
           { opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out' },
-          1.2 + idx * 0.8
+          1.2 + idx * 1.0
         );
 
         gsap.to(card, {
@@ -214,7 +228,7 @@ export default function OurProcess() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top top',
-          end: '+=250%',
+          end: '+=350%',
           scrub: 1,
           pin: true,
           anticipatePin: 1,
@@ -241,7 +255,7 @@ export default function OurProcess() {
         { x: '100vw' },
         {
           x: () => -getScrollDistance(),
-          duration: 4.5,
+          duration: 6.5,
           ease: 'none',
         },
         0
@@ -264,7 +278,7 @@ export default function OurProcess() {
         glowPathRef.current,
         {
           strokeDashoffset: 0,
-          duration: 4.0,
+          duration: 6.0,
           ease: 'none',
         },
         0.6
@@ -277,7 +291,7 @@ export default function OurProcess() {
           card,
           { opacity: 0, scale: 0.92 },
           { opacity: 1, scale: 1, duration: 0.5, ease: 'power2.out' },
-          0.3 + idx * 1.04
+          0.3 + idx * 0.9
         );
 
         gsap.to(card, {
@@ -318,7 +332,7 @@ export default function OurProcess() {
           {/* Connector Wavy SVG Line */}
           <svg
             className="process-svg-connector"
-            viewBox="0 0 2600 600"
+            viewBox="0 0 3800 600"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -343,7 +357,7 @@ export default function OurProcess() {
             {/* Background Path (subtle grey) */}
             <path
               ref={bgPathRef}
-              d="M 150 180 C 250 180, 300 180, 400 180 C 700 180, 700 420, 1000 420 C 1300 420, 1300 180, 1600 180 C 1900 180, 1900 420, 2200 420 C 2300 420, 2350 420, 2450 420"
+              d="M 150 180 C 250 180, 300 180, 400 180 C 700 180, 700 420, 1000 420 C 1300 420, 1300 180, 1600 180 C 1900 180, 1900 420, 2200 420 C 2500 420, 2500 180, 2800 180 C 3100 180, 3100 420, 3400 420 C 3500 420, 3550 420, 3650 420"
               stroke="rgba(255, 255, 255, 0.05)"
               strokeWidth="4"
               strokeLinecap="round"
@@ -352,7 +366,7 @@ export default function OurProcess() {
             {/* Glowing Active Path (animated) */}
             <path
               ref={glowPathRef}
-              d="M 150 180 C 250 180, 300 180, 400 180 C 700 180, 700 420, 1000 420 C 1300 420, 1300 180, 1600 180 C 1900 180, 1900 420, 2200 420 C 2300 420, 2350 420, 2450 420"
+              d="M 150 180 C 250 180, 300 180, 400 180 C 700 180, 700 420, 1000 420 C 1300 420, 1300 180, 1600 180 C 1900 180, 1900 420, 2200 420 C 2500 420, 2500 180, 2800 180 C 3100 180, 3100 420, 3400 420 C 3500 420, 3550 420, 3650 420"
               stroke="url(#line-gradient)"
               strokeWidth="4"
               strokeLinecap="round"

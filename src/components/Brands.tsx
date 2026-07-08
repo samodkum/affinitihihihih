@@ -99,6 +99,11 @@ export default function Brands() {
         </h2>
       </div>
 
+      {/* Brands We've Worked With Subtitle */}
+      <div className="pf-brands-subtitle-wrap">
+        <h3 className="pf-brands-subtitle">Brands we've worked with</h3>
+      </div>
+ 
       {/* ── Infinite Marquee Ticker ── */}
       <div className="pf-marquee-container">
         <div className="pf-marquee-track">

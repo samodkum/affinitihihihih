@@ -193,30 +193,36 @@ export default function WhyChooseUs() {
       <div ref={layoutContainerRef} className="wcu-layout-container">
         {/* Stats Cards Grid */}
         <div className="wcu-stats-grid">
-          {/* Card 1: Experience (Wide) */}
+          {/* Card 1: Core Services (Wide) */}
           <div ref={card1Ref} className="wcu-stat-card wcu-card-wide">
-            <div className="wcu-stat-value">5+</div>
-            <div className="wcu-stat-label">years of industry experience</div>
+            <div className="wcu-stat-value">13+</div>
+            <div className="wcu-stat-label">core services offered</div>
           </div>
 
-          {/* Card 2: Partners */}
+          {/* Card 2: AI Tools */}
           <div ref={card2Ref} className="wcu-stat-card">
-            <div className="wcu-stat-value">10+</div>
-            <div className="wcu-stat-label">brand partners</div>
+            <div className="wcu-stat-value">50+</div>
+            <div className="wcu-stat-label">AI tools integrated</div>
           </div>
 
-          {/* Card 3: Team */}
+          {/* Card 3: Client-Focused */}
           <div ref={card3Ref} className="wcu-stat-card">
-            <div className="wcu-stat-value">10+</div>
-            <div className="wcu-stat-label">team members</div>
+            <div className="wcu-stat-value">100%</div>
+            <div className="wcu-stat-label">client-focused approach</div>
           </div>
         </div>
 
         {/* Description Card */}
         <div ref={rightCardRef} className="wcu-description-card">
-          <p className="wcu-description-text">
-            At Affinity Kraft Solution, we provide personalized, data-first systems tailored to your brand. Our integrated engineering and creative teams collaborate closely to translate growth goals into predictable revenue systems. With a passion for performance and technical expertise, we design the marketing infrastructure that makes a lasting impact.
-          </p>
+          <p className="wcu-description-text">We focus on practical solutions that create real business impact.</p>
+          <ul className="wcu-reasons-list">
+            <li>Strategies tailored to your business goals</li>
+            <li>ROI-focused, data-backed campaigns</li>
+            <li>Creative ideas with measurable outcomes</li>
+            <li>Skilled team with cross-industry expertise</li>
+            <li>Transparent reporting &amp; dedicated account management</li>
+            <li>Full-suite digital marketing under one roof</li>
+          </ul>
         </div>
       </div>
     </section>

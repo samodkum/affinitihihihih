@@ -10,6 +10,7 @@ import Industries from './components/Industries';
 import Testimonials from './components/Testimonials';
 import CaseStudies from './components/CaseStudies';
 import Contact from './components/Contact';
+import Faqs from './components/Faqs';
 import Footer from './components/Footer';
 import MobileMenu from './components/MobileMenu';
 import gsap from 'gsap';
@@ -65,6 +66,9 @@ function App() {
 
       {/* Case Studies Hub */}
       <CaseStudies />
+
+      {/* Frequently Asked Questions */}
+      <Faqs />
 
       {/* Contact Section */}
       <Contact />

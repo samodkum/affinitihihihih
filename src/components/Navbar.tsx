@@ -41,7 +41,7 @@ export default function Navbar() {
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">Philosophy</a></li>
         <li><a href="#experience">Excellence</a></li>
-        <li><a href="#connect">Connect</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
       <button className="nav-btn">Elevate Now</button>
     </nav>

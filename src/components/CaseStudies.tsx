@@ -17,277 +17,277 @@ interface CaseStudy {
 const caseStudiesData: CaseStudy[] = [
   {
     id: "cs-1",
-    industry: "E-Commerce",
-    clientName: "Zephyr Retail",
-    title: "Scaling Direct-to-Consumer Growth",
-    metricPreview: "+340% ROAS",
-    challenge: "Zephyr Retail was struggling with high customer acquisition costs and low retention in a saturated fashion market. They needed a robust digital pipeline to scale profitably.",
+    industry: "Logistics & Shipping",
+    clientName: "Sea Vision Shipping",
+    title: "B2B Freight Lead Pipeline",
+    metricPreview: "+310% Leads Lift",
+    challenge: "Low B2B digital touchpoints and fragmented lead pipelines for international chartering and cargo transportation lines.",
     outcomes: [
-      { label: "ROAS Increase", value: "340%" },
-      { label: "CAC Reduction", value: "45%" },
-      { label: "New Users", value: "120K+" }
+      { label: "Leads Lift", value: "+310%" },
+      { label: "CAC Decrease", value: "-42%" },
+      { label: "Pipeline Value", value: "$2.4M" }
     ],
     strategies: [
-      "Implemented a hyper-segmented performance marketing funnel.",
-      "Redesigned the checkout flow to reduce friction, dropping abandonment by 25%.",
-      "Deployed automated email sequences for cart recovery and post-purchase upselling."
+      "Implemented search engine optimization.",
+      "LinkedIn account-based marketing (ABM) for freight forwarders.",
+      "Real-time custom CRM lead pipelines."
     ],
     quote: {
-      text: "AKS didn't just run ads; they re-engineered our growth engine. The returns have been nothing short of phenomenal.",
-      author: "CEO, Zephyr Retail"
+      text: "Affinity Kraft helped us improve our online visibility and generate quality leads. Their strategic focus on growth completely aligned with our core commercial objectives.",
+      author: "Capt. Rajesh Sharma, Operational Director"
     },
     gradient: "linear-gradient(135deg, rgba(255,106,0,0.2), rgba(12,12,20,0.9))"
   },
   {
     id: "cs-2",
-    industry: "Healthcare SaaS",
-    clientName: "MedFlow Systems",
-    title: "Enterprise Lead Generation",
-    metricPreview: "4x Qualified Leads",
-    challenge: "MedFlow's sales team was wasting hours on unqualified leads. They needed a B2B demand generation strategy that filtered intent and nurtured enterprise prospects.",
+    industry: "Retail & E-Commerce",
+    clientName: "Usha",
+    title: "Tier-2 & Tier-3 Penetration",
+    metricPreview: "+180% Dealer Leads",
+    challenge: "Fragmented dealer connection footprint and low engagement across tier-2 and tier-3 markets for premium home appliances.",
     outcomes: [
-      { label: "MQL to SQL", value: "65%" },
-      { label: "Sales Cycle", value: "-30 days" },
-      { label: "Pipeline Value", value: "$4.2M" }
+      { label: "Dealer Leads", value: "+180%" },
+      { label: "Ad Impressions", value: "3.4M+" },
+      { label: "Sales Lift", value: "+28%" }
     ],
     strategies: [
-      "Developed an authoritative content hub with gated whitepapers.",
-      "Launched account-based marketing (ABM) campaigns targeting hospital administrators.",
-      "Integrated lead scoring models via HubSpot and LinkedIn matched audiences."
+      "Deployed hyper-local digital advertising.",
+      "Interactive visual dealer locators.",
+      "Geo-targeted social activations."
     ],
     quote: {
-      text: "The quality of conversations our sales team is having now is incredible. Every lead is verified, educated, and ready to buy.",
-      author: "VP of Sales, MedFlow Systems"
+      text: "The dealer network connect drive and localized digital ad strategies orchestrated by AKS amplified our tier-2 and tier-3 market penetration by leaps and bounds.",
+      author: "Anoop Kumar, Senior Marketing Manager"
     },
     gradient: "linear-gradient(135deg, rgba(255,140,26,0.15), rgba(12,12,20,0.95))"
   },
   {
     id: "cs-3",
-    industry: "Real Estate",
-    clientName: "Oasis Properties",
-    title: "Premium Property Launches",
-    metricPreview: "100% Sold in 48h",
-    challenge: "Oasis needed to launch a luxury villa project but faced a stagnant local market. They required a high-impact digital launch to attract high-net-worth investors.",
+    industry: "Healthcare & Clinics",
+    clientName: "Cure & Safe Homoeo",
+    title: "Clinical Trust & Patient Funnels",
+    metricPreview: "+240% Doctor Consults",
+    challenge: "High customer acquisition cost (CAC) and lower clinical trust on virtual consultation pathways.",
     outcomes: [
-      { label: "Inventory Sold", value: "100%" },
-      { label: "Launch Time", value: "48 Hours" },
-      { label: "Cost per Lead", value: "-60%" }
+      { label: "Doctor Consults", value: "+240%" },
+      { label: "CPA Reduction", value: "-55%" },
+      { label: "Reviews Rating", value: "4.8" }
     ],
     strategies: [
-      "Created an immersive 3D virtual tour landing page experience.",
-      "Executed a geo-fenced programmatic ad campaign targeting luxury enclaves.",
-      "Built a VIP early-access WhatsApp community to drive urgency."
+      "Created trust-focused multi-channel video funnels.",
+      "Automated patient booking systems.",
+      "Google Local Services optimization."
     ],
     quote: {
-      text: "A masterclass in digital luxury marketing. They sold out our flagship project before the physical launch event even started.",
-      author: "Director, Oasis Properties"
+      text: "Their strategic approach delivered measurable business growth. The marketing systems built by AKS are highly scalable and yield consistent, high-intent lead volume.",
+      author: "Dr. S. K. Mukhopadhyay, Managing Director"
     },
     gradient: "linear-gradient(135deg, rgba(255,179,71,0.2), rgba(6,6,10,0.9))"
   },
   {
     id: "cs-4",
-    industry: "Fintech",
-    clientName: "Finova App",
-    title: "App User Acquisition",
-    metricPreview: "2M+ Downloads",
-    challenge: "A new personal finance app needed to break through the noise of established competitors and acquire loyal, daily active users at scale.",
+    industry: "Retail & E-Commerce",
+    clientName: "Go Zero",
+    title: "D2C Subscription Scaling",
+    metricPreview: "+420% Subscription Sales",
+    challenge: "Scaling Direct-to-Consumer (D2C) sugar-free ice cream subscriptions inside premium metro channels against heavy legacy competition.",
     outcomes: [
-      { label: "Total Installs", value: "2.5M" },
-      { label: "Cost per Install", value: "$0.85" },
-      { label: "App Rating", value: "4.8/5" }
+      { label: "Sub Sales", value: "+420%" },
+      { label: "Viral Views", value: "15M+" },
+      { label: "ROAS Boost", value: "3.8x" }
     ],
     strategies: [
-      "Leveraged influencer marketing and user-generated content (UGC) for TikTok and Reels.",
-      "Optimized App Store (ASO) listings with localized keywords and A/B tested screenshots.",
-      "Implemented gamified referral loops inside the app to drive viral coefficient."
+      "Executed precise lifestyle Instagram visual ads.",
+      "Direct micro-influencer product seeding.",
+      "Deep checkout funnel optimization."
     ],
     quote: {
-      text: "Our user base exploded globally. The blend of creative viral content and precise media buying was the perfect catalyst.",
-      author: "Co-Founder, Finova App"
+      text: "Professional team, transparent communication, and excellent results. If you are looking for an agency that operates on accountability and data, look no further.",
+      author: "Saurabh Sharda, Co-Founder & CMO"
     },
     gradient: "linear-gradient(135deg, rgba(255,106,0,0.15), rgba(12,12,20,0.85))"
   },
   {
     id: "cs-5",
-    industry: "Hospitality",
-    clientName: "Grand Azure Hotels",
-    title: "Direct Booking Domination",
-    metricPreview: "+210% Direct Revenue",
-    challenge: "Grand Azure was losing excessive margins to online travel agencies (OTAs) and needed to shift their revenue mix toward direct website bookings.",
+    industry: "Restaurants & Cafes",
+    clientName: "Murli's",
+    title: "Corporate Catering Pipelines",
+    metricPreview: "+215% Catering Revenue",
+    challenge: "Underutilized corporate catering capabilities and flat weekday bulk booking pipelines.",
     outcomes: [
-      { label: "Direct Bookings", value: "+210%" },
-      { label: "OTA Dependency", value: "-40%" },
-      { label: "Loyalty Signups", value: "55K" }
+      { label: "Catering Rev", value: "+215%" },
+      { label: "Corporate Accts", value: "45+" },
+      { label: "Inquiry Lift", value: "+85%" }
     ],
     strategies: [
-      "Redesigned the booking engine for zero-friction mobile conversions.",
-      "Launched targeted search (SEM) campaigns bidding on high-intent vacation keywords.",
-      "Introduced a 'Direct Price Match' guarantee with exclusive perks marketed via social."
+      "Orchestrated targeted LinkedIn bulk B2B corporate catering campaigns.",
+      "Interactive catering menu budget builder.",
+      "Direct outreach automation."
     ],
     quote: {
-      text: "We took back control of our margins. The new direct booking strategy completely transformed our profitability this season.",
-      author: "CMO, Grand Azure Hotels"
+      text: "AKS automated our bulk booking pipelines and commercial catering outreach. We recorded an unprecedented surge in corporate event contracts in just 90 days.",
+      author: "Murli Dhar, Founder"
     },
     gradient: "linear-gradient(135deg, rgba(255,140,26,0.2), rgba(6,6,10,0.95))"
   },
   {
     id: "cs-6",
-    industry: "Education Tech",
-    clientName: "SkillBridge",
-    title: "Global Student Enrollment",
-    metricPreview: "15k+ Enrollments",
-    challenge: "SkillBridge wanted to scale their online certification courses globally but struggled with varied localization and high competition in the ed-tech space.",
+    industry: "Retail & E-Commerce",
+    clientName: "ASICS",
+    title: "Runner Club Engagement",
+    metricPreview: "+140% Sign-ups",
+    challenge: "Low member engagement for regional running programs and underperforming digital launch metrics on new footwear lines.",
     outcomes: [
-      { label: "Total Enrollments", value: "15,240" },
-      { label: "Global Reach", value: "42 Countries" },
-      { label: "CPA Reduction", value: "35%" }
+      { label: "Club Sign-ups", value: "+140%" },
+      { label: "Product Sell-out", value: "92%" },
+      { label: "Conversion Rate", value: "4.2%" }
     ],
     strategies: [
-      "Deployed dynamically translated ad creatives across 15 regions.",
-      "Built localized landing pages highlighting region-specific career outcomes.",
-      "Utilized YouTube in-stream ads focusing on student success stories."
+      "Launched localized micro-influencer physical runs.",
+      "Dynamic retargeting campaigns for cart abandoners.",
+      "High-contrast motion banner ads."
     ],
     quote: {
-      text: "The precision of their global targeting model allowed us to enter markets we hadn't even considered viable.",
-      author: "Head of Marketing, SkillBridge"
+      text: "Our brand loyalty programs and regional fitness activations saw record participation because of AKS's precise segment targeting and motion-rich visual marketing.",
+      author: "Meagan Scott, Head of Marketing"
     },
     gradient: "linear-gradient(135deg, rgba(255,179,71,0.15), rgba(12,12,20,0.9))"
   },
   {
     id: "cs-7",
-    industry: "Automotive",
-    clientName: "Apex Motors",
-    title: "Dealership Footfall Drive",
-    metricPreview: "+450 Test Drives",
-    challenge: "A regional dealership network was struggling to convert digital interest into physical showroom visits for their new electric vehicle line.",
+    industry: "Professional Services",
+    clientName: "Wipro",
+    title: "Account-Based Cloud Marketing",
+    metricPreview: "+65% MQL Boost",
+    challenge: "Long cloud consultancy sales cycles and poor initial content touchpoint interaction on enterprise solutions.",
     outcomes: [
-      { label: "Test Drives Booked", value: "450+" },
-      { label: "Showroom Footfall", value: "+85%" },
-      { label: "Sales Conversion", value: "18%" }
+      { label: "MQL Boost", value: "+65%" },
+      { label: "Cycle Speed", value: "+30%" },
+      { label: "Enterprise Ops", value: "12" }
     ],
     strategies: [
-      "Launched localized geo-fencing campaigns around competitor dealerships.",
-      "Implemented a seamless 'One-Click Booking' funnel via WhatsApp API.",
-      "Created highly targeted Facebook Lead Ads focusing on EV tax incentives."
+      "Deployed comprehensive LinkedIn Account-Based Marketing (ABM) pipelines.",
+      "Premium educational asset downloads.",
+      "Lead intelligence scoring."
     ],
     quote: {
-      text: "The digital-to-physical bridge they built resulted in our best quarter for showroom conversions in five years.",
-      author: "Regional Director, Apex Motors"
+      text: "The custom B2B content funnels and multi-channel lead enrichment pipelines built by the AKS team are highly integrated, enterprise-secure, and robust.",
+      author: "Venkatesh Rao, VP of Enterprise Solutions Marketing"
     },
     gradient: "linear-gradient(135deg, rgba(255,106,0,0.25), rgba(6,6,10,0.85))"
   },
   {
     id: "cs-8",
-    industry: "FMCG",
-    clientName: "Nature's Crave",
-    title: "Omnichannel Brand Launch",
-    metricPreview: "#1 Category Rank",
-    challenge: "Nature's Crave launched a new healthy snack line but lacked brand awareness and retail velocity to sustain shelf space in major supermarkets.",
+    industry: "Restaurants & Cafes",
+    clientName: "Karim's",
+    title: "Cinematic Food Storytelling",
+    metricPreview: "+48% Weekday Dine-in",
+    challenge: "Attracting weekday family diners and adapting heritage marketing to millennial culinary consumers.",
     outcomes: [
-      { label: "Market Share", value: "12%" },
-      { label: "Social Impressions", value: "14M+" },
-      { label: "Retail Velocity", value: "3x" }
+      { label: "Weekday Dine-in", value: "+48%" },
+      { label: "Video Reach", value: "8.5M" },
+      { label: "Direct Delivery", value: "+110%" }
     ],
     strategies: [
-      "Executed a massive influencer sampling campaign on Instagram and TikTok.",
-      "Ran retail-specific localized ads directing foot traffic to stocking stores.",
-      "Deployed retargeting campaigns for their direct-to-consumer e-commerce site."
+      "Crafted cinematic storytelling culinary video series.",
+      "Local food influencer degustation reviews.",
+      "Hyper-targeted Instagram reels."
     ],
     quote: {
-      text: "Our product was flying off the shelves so fast that supermarkets were requesting emergency restocking within weeks.",
-      author: "Brand Manager, Nature's Crave"
+      text: "Their localized culinary storytelling and heritage-focused video campaigns brought thousands of new diners to our branches while honoring our historic culinary legacy.",
+      author: "Zaeemuddin Ahmed, Managing Partner"
     },
     gradient: "linear-gradient(135deg, rgba(255,140,26,0.15), rgba(12,12,20,0.9))"
   },
   {
     id: "cs-9",
-    industry: "B2B Logistics",
-    clientName: "FreightX",
-    title: "Digital Freight Booking",
-    metricPreview: "65% Process Automation",
-    challenge: "FreightX relied heavily on manual sales processes. They needed a digital transformation to capture inbound logistics requests and automate quoting.",
+    industry: "Retail & E-Commerce",
+    clientName: "ITC Limited",
+    title: "Organic Distributor Launch",
+    metricPreview: "+190% Dealer Trials",
+    challenge: "Slow distributor adoption speed and low initial trial rates for a premium organic food portfolio.",
     outcomes: [
-      { label: "Inbound Leads", value: "+280%" },
-      { label: "Quote Time", value: "< 2 mins" },
-      { label: "Revenue Growth", value: "40%" }
+      { label: "Dealer Trials", value: "+190%" },
+      { label: "Bulk Retailers", value: "8.5K+" },
+      { label: "Time-to-Market", value: "35% Faster" }
     ],
     strategies: [
-      "Built a custom API-integrated quoting engine on their landing page.",
-      "Executed high-intent LinkedIn Ads targeting supply chain executives.",
-      "Optimized their website for technical logistics SEO terms."
+      "Built geo-fenced dealer awareness campaigns.",
+      "Automated bulk wholesale self-service applications.",
+      "Targeted trade-fair ads."
     ],
     quote: {
-      text: "They dragged our traditional business into the digital age, completely automating our inbound funnel and supercharging our growth.",
-      author: "COO, FreightX"
+      text: "A highly competent partner for digital launch activations. AKS's automated distributor outreach and regional campaigns scaled our product roll-out smoothly.",
+      author: "Rajesh Gopinath, Brand Manager"
     },
     gradient: "linear-gradient(135deg, rgba(255,179,71,0.2), rgba(6,6,10,0.95))"
   },
   {
     id: "cs-10",
-    industry: "D2C Beauty",
-    clientName: "Lumiere Cosmetics",
-    title: "Viral Product Launch",
-    metricPreview: "Sold Out in 6 Days",
-    challenge: "Lumiere needed to launch their new skincare serum but possessed a limited initial marketing budget, requiring maximum viral efficiency.",
+    industry: "Retail & E-Commerce",
+    clientName: "Chai Xpress",
+    title: "Checkout Flow Optimization",
+    metricPreview: "-32% Checkout Drop",
+    challenge: "High cart abandonment rates on checkout page and stagnant subscription volume for international premium loose tea selections.",
     outcomes: [
-      { label: "Inventory Cleared", value: "10,000 Units" },
-      { label: "Viral Views", value: "8M+" },
-      { label: "Waitlist Size", value: "25K" }
+      { label: "Tea Subscribers", value: "+160%" },
+      { label: "Checkout Drop", value: "-32%" },
+      { label: "ROAS Average", value: "4.5x" }
     ],
     strategies: [
-      "Created a 'challenge' based UGC campaign on TikTok focusing on before/after results.",
-      "Utilized micro-influencer seeding to generate authentic review content.",
-      "Implemented a scarcity-driven email countdown sequence."
+      "Re-engineered frictionless checkout UI.",
+      "Set up abandoned checkout automated SMS/email flows.",
+      "Seasonal search ads."
     ],
     quote: {
-      text: "The momentum they generated online was staggering. We went from a quiet launch to a massive waitlist overnight.",
-      author: "Founder, Lumiere Cosmetics"
+      text: "AKS streamlined our direct subscription service, introducing custom checkout flows that reduced cart abandonment rates by over 30%.",
+      author: "Arjun Sen, Director of Digital Commerce"
     },
     gradient: "linear-gradient(135deg, rgba(255,106,0,0.15), rgba(12,12,20,0.9))"
   },
   {
     id: "cs-11",
-    industry: "Non-Profit",
-    clientName: "Green Earth Initiative",
-    title: "Donor Acquisition Drive",
-    metricPreview: "$1.2M Raised",
-    challenge: "The initiative needed to expand their recurring donor base beyond their traditional offline fundraising channels to fund upcoming projects.",
+    industry: "Education",
+    clientName: "Frankfinn",
+    title: "Counseling Lead Qualification",
+    metricPreview: "+270% Qualified Leads",
+    challenge: "Low admissions team touch-rates due to high proportion of unverified and cold student inquiry forms.",
     outcomes: [
-      { label: "Total Raised", value: "$1.2M" },
-      { label: "Recurring Donors", value: "8,500" },
-      { label: "ROI", value: "5.5x" }
+      { label: "Qualified Leads", value: "+270%" },
+      { label: "Enrollment CR", value: "+45%" },
+      { label: "Consultations", value: "400+" }
     ],
     strategies: [
-      "Produced emotional, high-impact video storytelling for Facebook & Instagram.",
-      "Optimized the donation landing page for 1-click Apple/Google Pay conversions.",
-      "Implemented Google Ad Grants to capture intent-based search traffic."
+      "Implemented multi-step educational qualifying landing pages.",
+      "SMS-based verification layers.",
+      "Local student seminar invitations."
     ],
     quote: {
-      text: "Their digital campaigns didn't just raise funds; they built a community of passionate, recurring supporters for our cause.",
-      author: "Executive Director, Green Earth"
+      text: "Our student enrollment counseling lines were continuously filled with highly qualified applicants. AKS's lead verification pipeline works incredibly well.",
+      author: "Sanjay Kumar, Head of Admissions & Marketing"
     },
     gradient: "linear-gradient(135deg, rgba(255,140,26,0.2), rgba(6,6,10,0.9))"
   },
   {
     id: "cs-12",
-    industry: "PropTech",
-    clientName: "NestIQ",
-    title: "Platform Adoption",
-    metricPreview: "50k Active Users",
-    challenge: "NestIQ's new property management platform faced high barriers to entry with landlords accustomed to legacy software solutions.",
+    industry: "Retail & E-Commerce",
+    clientName: "Haldiram's",
+    title: "Corporate Festive Gifting",
+    metricPreview: "+195% Gifting Volume",
+    challenge: "Inefficient outreach targeting corporate human resource and purchase leads during high-volume festive seasons.",
     outcomes: [
-      { label: "Active Users", value: "50K+" },
-      { label: "Onboarding Time", value: "-60%" },
-      { label: "Market Pen", value: "18%" }
+      { label: "Gifting Volume", value: "+195%" },
+      { label: "Corporate Clients", value: "320" },
+      { label: "Average Order", value: "+60%" }
     ],
     strategies: [
-      "Launched educational webinars and content marketing demystifying PropTech.",
-      "Executed targeted search campaigns for legacy software replacement keywords.",
-      "Created a frictionless freemium onboarding funnel."
+      "Developed LinkedIn corporate purchasing agent lists.",
+      "Customized corporate gifting PDF builders.",
+      "Direct email lead enrichment."
     ],
     quote: {
-      text: "They effectively communicated our complex technical value proposition into compelling, digestible marketing that drove mass adoption.",
-      author: "CEO, NestIQ"
+      text: "AKS's digital strategy during key festival seasons catalyzed our premium corporate gift-box sales, delivering unmatched local performance across regions.",
+      author: "Manish Agarwal, VP of Corporate Gifting"
     },
     gradient: "linear-gradient(135deg, rgba(255,179,71,0.15), rgba(12,12,20,0.85))"
   }
@@ -361,7 +361,7 @@ const CaseStudies: React.FC = () => {
                   <div className="cs-card-inner">
                     {/* Collapsed State Title */}
                     <div className="cs-collapsed-title">
-                      <h3>{study.title}</h3>
+                      <h3>{study.clientName}</h3>
                     </div>
 
                     {/* Expanded State Content */}

@@ -219,10 +219,10 @@ export default function About() {
     <section ref={sectionRef} id="about" className="about-section">
       {/* Header */}
       <div className="about-header">
-        <h2 ref={titleRef} className="about-section-title">About Us</h2>
+        <h2 ref={titleRef} className="about-section-title">Who We Are</h2>
         <div ref={underlineRef} className="about-title-underline" />
       </div>
-
+ 
       <div className="about-content">
         {/* Row 1 */}
         <div className="about-row about-row-1">
@@ -237,12 +237,12 @@ export default function About() {
                 />
               </div>
               <div className="about-card-info">
-                <h3 className="about-card-title">Our philosophy is built on data-driven growth</h3>
+                <h3 className="about-card-title">Affinity Kraft Solution</h3>
                 <p className="about-card-text">
-                  We believe that marketing is a science, not a guessing game. By engineering bulletproof marketing systems and scaling automation workflows, we give ambitious brands the leverage they need to dominate search and social auctions.
+                  Affinity Kraft Solution Pvt. Ltd. is a full-service marketing agency that helps businesses build a strong and lasting digital presence. From branding and website development to digital marketing and lead generation, we offer complete solutions designed to help businesses grow.
                 </p>
                 <p className="about-card-text text-muted-warm">
-                  Our custom analytics and cohort tracking protocols remove the guesswork, letting you allocate spend with absolute confidence.
+                  Our team of marketers, designers, developers, strategists, and content creators works together to create campaigns that not only look good but also deliver measurable results. We focus on understanding your business, identifying opportunities, and building strategies that support long-term growth.
                 </p>
               </div>
             </div>

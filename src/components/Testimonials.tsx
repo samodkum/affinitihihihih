@@ -4,62 +4,62 @@ import './Testimonials.css';
 const testimonials = [
   {
     name: "Capt. Rajesh Sharma",
-    role: "Operational Director",
-    quote: "Affinity Kraft Solution helped us improve our online visibility and generate quality leads. Their strategic focus on growth completely aligned with our core commercial objectives."
+    role: "Operational Director (Sea Vision Shipping)",
+    quote: "Affinity Kraft helped us improve our online visibility and generate quality leads. Their strategic focus on growth completely aligned with our core commercial objectives."
   },
   {
     name: "Anoop Kumar",
-    role: "Senior Marketing Manager",
+    role: "Senior Marketing Manager (Usha)",
     quote: "The dealer network connect drive and localized digital ad strategies orchestrated by AKS amplified our tier-2 and tier-3 market penetration by leaps and bounds."
   },
   {
     name: "Dr. S. K. Mukhopadhyay",
-    role: "Managing Director",
+    role: "Managing Director (Cure & Safe Homoeo)",
     quote: "Their strategic approach delivered measurable business growth. The marketing systems built by AKS are highly scalable and yield consistent, high-intent lead volume."
   },
   {
     name: "Saurabh Sharda",
-    role: "Co-Founder & CMO",
+    role: "Co-Founder & CMO (Go Zero)",
     quote: "Professional team, transparent communication, and excellent results. If you are looking for an agency that operates on accountability and data, look no further."
   },
   {
     name: "Murli Dhar",
-    role: "Founder",
+    role: "Founder (Murli's)",
     quote: "AKS automated our bulk booking pipelines and commercial catering outreach. We recorded an unprecedented surge in corporate event contracts in just 90 days."
   },
   {
     name: "Meagan Scott",
-    role: "Head of Marketing",
+    role: "Head of Marketing (ASICS)",
     quote: "Our brand loyalty programs and regional fitness activations saw record participation because of AKS's precise segment targeting and motion-rich visual marketing."
   },
   {
     name: "Venkatesh Rao",
-    role: "VP of Enterprise Solutions Marketing",
+    role: "VP of Enterprise Solutions Marketing (Wipro)",
     quote: "The custom B2B content funnels and multi-channel lead enrichment pipelines built by the AKS team are highly integrated, enterprise-secure, and robust."
   },
   {
     name: "Zaeemuddin Ahmed",
-    role: "Managing Partner",
+    role: "Managing Partner (Karim's)",
     quote: "Their localized culinary storytelling and heritage-focused video campaigns brought thousands of new diners to our branches while honoring our historic culinary legacy."
   },
   {
     name: "Rajesh Gopinath",
-    role: "Brand Manager",
+    role: "Brand Manager (ITC Limited)",
     quote: "A highly competent partner for digital launch activations. AKS's automated distributor outreach and regional campaigns scaled our product roll-out smoothly."
   },
   {
     name: "Arjun Sen",
-    role: "Director of Digital Commerce",
+    role: "Director of Digital Commerce (Chai Xpress)",
     quote: "AKS streamlined our direct subscription service, introducing custom checkout flows that reduced cart abandonment rates by over 30%."
   },
   {
     name: "Sanjay Kumar",
-    role: "Head of Admissions & Marketing",
+    role: "Head of Admissions & Marketing (Frankfinn)",
     quote: "Our student enrollment counseling lines were continuously filled with highly qualified applicants. AKS's lead verification pipeline works incredibly well."
   },
   {
     name: "Manish Agarwal",
-    role: "VP of Corporate Gifting",
+    role: "VP of Corporate Gifting (Haldiram's)",
     quote: "AKS's digital strategy during key festival seasons catalyzed our premium corporate gift-box sales, delivering unmatched local performance across regions."
   },
   {
@@ -70,7 +70,7 @@ const testimonials = [
   {
     name: "Rohan Malhotra",
     role: "Founder",
-    quote: "Affinity Kraft Solution brought real structure to our digital presence: clear strategy, clean execution, genuine accountability."
+    quote: "Affinity Kraft brought real structure to our digital presence: clear strategy, clean execution, genuine accountability."
   },
   {
     name: "Vikram Seth",

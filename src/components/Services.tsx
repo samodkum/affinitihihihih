@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { TrendingUp, Cpu, BarChart3, Target, Sparkles, ArrowRight } from 'lucide-react';
+import { TrendingUp, Cpu, BarChart3, Target, Sparkles } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 interface ServiceCard {
   id: number;
   title: string;
-  desc: string;
+  subServices: string[];
   icon: React.ReactNode;
   tag?: {
     text: string;
@@ -20,39 +20,64 @@ interface ServiceCard {
 const services: ServiceCard[] = [
   {
     id: 1,
-    title: 'Growth Systems',
-    desc: 'Scale your paid media & acquisition channels with high-yielding, data-backed campaigns.',
-    icon: <TrendingUp className="service-icon-svg" size={24} />,
-    tag: { text: '@growth', color: 'orange' },
+    title: 'Brand & Creative',
+    subServices: [
+      'Brand Strategy', 'Logo Design', 'Brand Identity',
+      'Packaging Design', 'Corporate Branding',
+      'Social Media Creatives', 'Brochures', 'Flyers',
+      'Company Profiles', 'Catalogues', 'Presentation Design', 'Print Design',
+    ],
+    icon: <Sparkles className="service-icon-svg" size={24} />,
+    tag: { text: '@brand', color: 'orange' },
     gradient: 'linear-gradient(135deg, #FF6A00 0%, #FF8C1A 100%)',
   },
   {
     id: 2,
-    title: 'Automations',
-    desc: 'Streamline customer journeys & back-office operations with advanced workflow integrations.',
-    icon: <Cpu className="service-icon-svg" size={24} />,
+    title: 'Social & Content',
+    subServices: [
+      'Instagram Marketing', 'Facebook Marketing', 'LinkedIn Marketing',
+      'Reels Marketing', 'Content Strategy', 'Community Management',
+      'Copywriting', 'Blogs', 'Website Content', 'Email Marketing', 'Case Studies',
+    ],
+    icon: <TrendingUp className="service-icon-svg" size={24} />,
+    tag: { text: '@social', color: 'amber' },
     gradient: 'linear-gradient(135deg, #FF8C1A 0%, #FFB347 100%)',
   },
   {
     id: 3,
-    title: 'Analytics & BI',
-    desc: 'Remove the guesswork with custom BI dashboards and bulletproof attribution modeling.',
-    icon: <BarChart3 className="service-icon-svg" size={24} />,
+    title: 'Performance & SEO',
+    subServices: [
+      'Meta Ads', 'Google Ads', 'Lead Generation',
+      'Sales Campaigns', 'Retargeting Campaigns', 'Conversion Optimization',
+      'Local SEO', 'Technical SEO', 'On-Page SEO',
+      'Off-Page SEO', 'Keyword Research', 'Website Audit',
+    ],
+    icon: <Target className="service-icon-svg" size={24} />,
     gradient: 'linear-gradient(135deg, #FFB347 0%, #FFF4D6 100%)',
   },
   {
     id: 4,
-    title: 'Conversion (CRO)',
-    desc: 'Turn clicks into customers by refining landing pages and high-impact conversion funnels.',
-    icon: <Target className="service-icon-svg" size={24} />,
+    title: 'Web & Video',
+    subServices: [
+      'Business Websites', 'Landing Pages', 'E-commerce Websites',
+      'WordPress Development', 'Website Maintenance',
+      'Brand Shoots', 'Product Shoots', 'Corporate Shoots',
+      'Reels Production', 'Drone Shoots', 'Video Editing',
+    ],
+    icon: <BarChart3 className="service-icon-svg" size={24} />,
     gradient: 'linear-gradient(135deg, #FF6A00 0%, #FFB347 100%)',
   },
   {
     id: 5,
-    title: 'Creative Systems',
-    desc: 'Transform visual branding with custom assets engineered to convert modern audiences.',
-    icon: <Sparkles className="service-icon-svg" size={24} />,
-    tag: { text: '@creative', color: 'amber' },
+    title: 'Tech & Automation',
+    subServices: [
+      'CRM Setup', 'Email Automation', 'WhatsApp Automation',
+      'Lead Funnels', 'Workflow Automation',
+      'AI Chatbots', 'AI Content Automation',
+      'AI Workflow Integration', 'AI Customer Support',
+    ],
+    icon: <Cpu className="service-icon-svg" size={24} />,
+    tag: { text: '@ai', color: 'orange' },
     gradient: 'linear-gradient(135deg, #FF8C1A 0%, #FFF4D6 100%)',
   },
 ];
@@ -242,16 +267,19 @@ export default function Services() {
                   {/* Body details */}
                   <div className="service-card-body">
                     <h3 className="service-card-title">{service.title}</h3>
-                    <p className="service-card-desc">{service.desc}</p>
+                    <ul className="service-sub-list">
+                      {service.subServices.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
                   </div>
 
-                  {/* Card footer: decorative pill badge */}
-                  <div className="service-card-footer">
-                    <span className="service-pill-btn">
-                      {isMobile && position === 0 ? 'Tap to Swipe' : 'Details'}{' '}
-                      <ArrowRight size={12} className="pill-arrow" />
-                    </span>
-                  </div>
+                  {/* Mobile-only Tap To Swipe hint */}
+                  {isMobile && position === 0 && (
+                    <div className="service-swipe-hint">
+                      Tap To Swipe →
+                    </div>
+                  )}
                 </div>
               </div>
             );

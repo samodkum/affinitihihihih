@@ -39,10 +39,33 @@ const mediaAssets = {
   ]
 };
 
+const greetings = [
+  "Hello",          // English
+  "Hola",           // Spanish
+  "Bonjour",        // French
+  "नमस्ते",          // Hindi
+  "こんにちは",       // Japanese
+  "你好",           // Chinese
+  "Ciao",           // Italian
+  "Olá",            // Portuguese
+  "Привет",         // Russian
+  "مرحباً",          // Arabic
+  "안녕하세요",       // Korean
+  "Merhaba",        // Turkish
+  "Hej",            // Swedish
+  "Jambo",          // Swahili
+  "Hallo",          // German/Dutch
+  "নমস্কার",         // Bengali
+  "Γεια σου",       // Greek
+  "שלום",           // Hebrew
+  "Sawubona",       // Zulu
+  "Affinity Kraft Solution" // Brand Transition
+];
+
 export default function Preloader({ onComplete }: PreloaderProps) {
   const [targetPercent, setTargetPercent] = useState(0);
-  const [displayPercent, setDisplayPercent] = useState(0);
-  const [statusText, setStatusText] = useState('INITIALIZING SYSTEMS...');
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isAnimationFinished, setIsAnimationFinished] = useState(false);
   const [isDone, setIsDone] = useState(false);
   const videoObjectUrlRef = useRef<string>('');
 
@@ -68,7 +91,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
         updateCombinedPercent(imagesProgress, videoProgress);
       };
       img.onload = handleImageLoad;
-      img.onerror = handleImageLoad; // resolve error cases so preloader doesn't hang
+      img.onerror = handleImageLoad;
     });
 
     // 2. Preload Video via Fetch to track direct byte percentage
@@ -113,7 +136,6 @@ export default function Preloader({ onComplete }: PreloaderProps) {
         const blob = new Blob(chunks, { type: 'video/mp4' });
         videoObjectUrlRef.current = URL.createObjectURL(blob);
       } catch (err) {
-        // Fetch failed or aborted, fallback to direct streaming
         videoProgress = 100;
         updateCombinedPercent(imagesProgress, videoProgress);
       }
@@ -126,36 +148,34 @@ export default function Preloader({ onComplete }: PreloaderProps) {
     };
   }, []);
 
-  // Smooth numeric counter update
+  // Greetings word rotation loop (280ms per word)
   useEffect(() => {
-    if (displayPercent < targetPercent) {
-      const timer = setTimeout(() => {
-        setDisplayPercent(prev => prev + 1);
-      }, 15);
-      return () => clearTimeout(timer);
-    }
-  }, [displayPercent, targetPercent]);
+    const totalWords = greetings.length;
+    const interval = setInterval(() => {
+      setWordIndex(prev => {
+        if (prev < totalWords - 1) {
+          return prev + 1;
+        } else {
+          clearInterval(interval);
+          setIsAnimationFinished(true);
+          return prev;
+        }
+      });
+    }, 280);
 
-  // Status subtitle updates based on progress stages
+    return () => clearInterval(interval);
+  }, []);
+
+  // Enter site when both the animation is complete and the assets are fully cached
   useEffect(() => {
-    if (displayPercent < 25) {
-      setStatusText('INITIALIZING COGNITIVE ENGINE...');
-    } else if (displayPercent < 55) {
-      setStatusText('CACHING INTERACTIVE INTERFACE...');
-    } else if (displayPercent < 80) {
-      setStatusText('SYNCING HIGH-RES PLATFORM MEDIA...');
-    } else if (displayPercent < 100) {
-      setStatusText('OPTIMIZING STACK COMPONENT REVEAL...');
-    } else {
-      setStatusText('SYSTEM PRELOAD COMPLETE. READY TO LAUNCH.');
-      // Keep "100%" on screen briefly for premium presentation, then animate hide
+    if (isAnimationFinished && targetPercent === 100) {
       const hideTimer = setTimeout(() => {
         setIsDone(true);
         onComplete(videoObjectUrlRef.current);
-      }, 700);
+      }, 600);
       return () => clearTimeout(hideTimer);
     }
-  }, [displayPercent, onComplete]);
+  }, [isAnimationFinished, targetPercent, onComplete]);
 
   return (
     <div className={`preloader-overlay ${isDone ? 'preloader-overlay--hidden' : ''}`}>
@@ -163,18 +183,11 @@ export default function Preloader({ onComplete }: PreloaderProps) {
         {/* Glow backdrop decorative rings */}
         <div className="preloader-glow-ring" />
 
-        {/* Typographic Digital Counter */}
-        <div className="preloader-counter">
-          <span className="preloader-number">{String(displayPercent).padStart(3, '0')}</span>
-          <span className="preloader-unit">%</span>
-        </div>
-
-        {/* High-tech status taglines */}
-        <div className="preloader-status-container">
-          <p className="preloader-status-label">{statusText}</p>
-          <div className="preloader-track-bar">
-            <div className="preloader-progress-fill" style={{ width: `${displayPercent}%` }} />
-          </div>
+        {/* Hello Word animation */}
+        <div className="preloader-greeting-container">
+          <span key={wordIndex} className="preloader-greeting-word">
+            {greetings[wordIndex]}
+          </span>
         </div>
       </div>
     </div>

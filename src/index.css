@@ -870,8 +870,8 @@ body::after {
 /* Stat Cards Row at bottom */
 .hero-stats-row {
   display: grid;
-  grid-template-columns: repeat(4, 230px);
-  gap: 24px;
+  grid-template-columns: repeat(6, 175px);
+  gap: 16px;
   pointer-events: auto;
   margin-top: auto;
   margin-bottom: 24px;
@@ -904,9 +904,11 @@ body::after {
   font-weight: 700;
   color: rgba(255, 255, 255, 0.35);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+  margin-top: 8px;
+  margin-bottom: 0;
   display: block;
+  line-height: 1.3;
 }
 
 .hero-stat-value {
@@ -914,7 +916,7 @@ body::after {
   font-size: 1.85rem;
   font-weight: 700;
   color: #ffffff;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 .hero-stat-arrow {
@@ -945,8 +947,11 @@ body::after {
 /* Responsive overrides for Hero reconstruct UI */
 @media (max-width: 1100px) {
   .hero-stats-row {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 500px;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 560px;
+  }
+  .hero-stat-card-extra {
+    display: block;
   }
 }
 
@@ -959,10 +964,13 @@ body::after {
     line-height: 1.15;
   }
   .hero-stats-row {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 440px;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
     width: calc(100% - 32px);
-    gap: 12px;
+    gap: 10px;
+  }
+  .hero-stat-card-extra {
+    display: block;
   }
 
   .hero-stat-card {
@@ -1064,6 +1072,32 @@ body::after {
   /* transform & opacity set via inline style (stagger in React) */
 }
 
+.pf-brands-subtitle-wrap {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.pf-brands-subtitle {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.4);
+  display: inline-block;
+  position: relative;
+}
+
+.pf-brands-subtitle::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #e53e00; /* Brand orange accent */
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
 
 /* ─── Marquee Container & Track ─── */
 .pf-marquee-container {
@@ -1311,6 +1345,12 @@ body::after {
   overflow: hidden; /* Prevent child bleed-through */
 }
 
+@media (min-width: 681px) {
+  .service-card:hover {
+    z-index: 999 !important;
+  }
+}
+
 .service-card-inner {
   position: relative;
   width: 100%;
@@ -1321,7 +1361,7 @@ body::after {
   border-radius: 24px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   box-shadow: 
     0 30px 60px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -1343,6 +1383,7 @@ body::after {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 28px;
 }
 
 .service-icon-bg {
@@ -1370,8 +1411,8 @@ body::after {
 
 /* Card Body */
 .service-card-body {
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-top: 0;
+  margin-bottom: 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -1395,10 +1436,113 @@ body::after {
   font-weight: 400;
 }
 
+/* Sub-services list inside each card */
+.service-sub-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-height: 190px;
+  overflow: hidden;
+}
+
+.service-sub-list li {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  line-height: 1.2;
+  font-weight: 500;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.service-sub-list li::before {
+  display: none !important;
+}
+
+/* Hover effects */
+.service-card:hover .service-sub-list li {
+  border-color: rgba(255, 106, 0, 0.18);
+  background: rgba(255, 106, 0, 0.04);
+  color: #ffffff;
+}
+
+/* Theme specific tag adjustments for visibility */
+.service-card.theme-orange .service-sub-list li {
+  background: rgba(5, 5, 5, 0.05) !important;
+  border-color: rgba(5, 5, 5, 0.12) !important;
+  color: #050505 !important;
+}
+.service-card.theme-orange:hover .service-sub-list li {
+  background: rgba(5, 5, 5, 0.12) !important;
+  border-color: rgba(5, 5, 5, 0.25) !important;
+  color: #000000 !important;
+}
+
+.service-card.theme-white .service-sub-list li {
+  background: rgba(5, 5, 5, 0.04) !important;
+  border-color: rgba(5, 5, 5, 0.08) !important;
+  color: #050505 !important;
+}
+.service-card.theme-white:hover .service-sub-list li {
+  background: rgba(5, 5, 5, 0.1) !important;
+  border-color: rgba(5, 5, 5, 0.2) !important;
+  color: #000000 !important;
+}
+
+.service-card.theme-charcoal .service-sub-list li {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+  color: var(--text-secondary) !important;
+}
+.service-card.theme-charcoal:hover .service-sub-list li {
+  background: rgba(255, 106, 0, 0.05) !important;
+  border-color: rgba(255, 106, 0, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.service-card.theme-black .service-sub-list li {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-color: rgba(255, 255, 255, 0.05) !important;
+  color: var(--text-secondary) !important;
+}
+.service-card.theme-black:hover .service-sub-list li {
+  background: rgba(255, 106, 0, 0.05) !important;
+  border-color: rgba(255, 106, 0, 0.2) !important;
+  color: #ffffff !important;
+}
+
 /* Card Footer Button */
 .service-card-footer {
   display: flex;
   justify-content: flex-start;
+}
+
+/* Mobile Swipe Hint */
+.service-swipe-hint {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.service-card.theme-orange .service-swipe-hint,
+.service-card.theme-white .service-swipe-hint {
+  color: rgba(5, 5, 5, 0.4);
 }
 
 .service-pill-btn {
@@ -2361,11 +2505,13 @@ body::after {
 
 /* Description Card */
 .wcu-description-card {
-  background-color: var(--accent-purple); /* Vivid Orange background */
+  background-color: var(--accent-purple);
   border-radius: 24px;
   padding: 36px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
   box-shadow: 0 20px 45px rgba(255, 106, 0, 0.3);
   border: 1px solid rgba(255, 106, 0, 0.3);
   transition: transform 0.4s var(--transition-smooth);
@@ -2378,9 +2524,37 @@ body::after {
 .wcu-description-text {
   font-family: var(--font-body);
   font-size: 1.05rem;
-  color: #06060a; /* Dark text for contrast */
+  color: #06060a;
   line-height: 1.65;
   font-weight: 600;
+}
+
+.wcu-reasons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 20px;
+  width: 100%;
+}
+
+.wcu-reasons-list li {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: #06060a;
+  font-weight: 500;
+  line-height: 1.4;
+  padding-left: 16px;
+  position: relative;
+}
+
+.wcu-reasons-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  font-size: 0.8rem;
 }
 
 /* Responsiveness */
@@ -2515,7 +2689,7 @@ body::after {
 /* Horizontal Track container */
 .process-track {
   position: relative;
-  width: 2600px;
+  width: 3800px;
   height: 600px;
   flex-shrink: 0;
   display: flex;
@@ -3095,6 +3269,7 @@ body::after {
 }
 .service-card.theme-orange .service-card-title,
 .service-card.theme-orange .service-card-desc,
+.service-card.theme-orange .service-sub-list li,
 .service-card.theme-orange .service-card-num,
 .service-card.theme-orange .service-pill-btn {
   color: #050505 !important;
@@ -3153,6 +3328,7 @@ body::after {
 }
 .service-card.theme-white .service-card-title,
 .service-card.theme-white .service-card-desc,
+.service-card.theme-white .service-sub-list li,
 .service-card.theme-white .service-card-num,
 .service-card.theme-white .service-pill-btn {
   color: #050505 !important;
@@ -3211,6 +3387,7 @@ body::after {
 }
 .service-card.theme-charcoal .service-card-title,
 .service-card.theme-charcoal .service-card-desc,
+.service-card.theme-charcoal .service-sub-list li,
 .service-card.theme-charcoal .service-pill-btn {
   color: #F5F5F5 !important;
 }
