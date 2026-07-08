@@ -283,6 +283,15 @@
   cursor: pointer;
 }
 
+@media (min-width: 969px) {
+  .country-code-select {
+    width: 80px !important;
+    padding: 14px 4px !important;
+    font-size: 0.82rem !important;
+    background-position: right 4px center !important;
+  }
+}
+
 .phone-input-container input {
   flex: 1;
 }

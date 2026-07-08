@@ -42,7 +42,7 @@ const Contact: React.FC = () => {
     formData.set('phone', safePhone);
     formData.delete('countryCode');
 
-    const googleSheetsUrl = import.meta.env.VITE_GOOGLE_SHEETS_URL;
+    const googleSheetsUrl = import.meta.env.VITE_GOOGLE_SHEETS_URL || 'https://script.google.com/macros/s/AKfycbyVTsZjWWsx2vtrmA1kwpWqLAavR5-9OK7i1KYl_X5lk79fdaH3HA5k0K4r1CLHugQE/exec';
 
     if (!googleSheetsUrl) {
       console.warn("VITE_GOOGLE_SHEETS_URL is not configured. Simulating successful form submission.");
