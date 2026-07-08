@@ -145,6 +145,8 @@ export default function Hero({ preloadedVideoUrl }: HeroProps) {
                 onClick={(e) => {
                   e.preventDefault();
                   setActiveIndex(idx);
+                  const targetId = link.href.substring(1);
+                  document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' });
                 }}
                 onMouseEnter={() => setHoveredIndex(idx)}
               >
@@ -154,6 +156,9 @@ export default function Hero({ preloadedVideoUrl }: HeroProps) {
             <button
               className="hero-navbar-btn"
               onMouseEnter={() => setHoveredIndex(null)}
+              onClick={() => {
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Let's talk
             </button>
@@ -172,10 +177,20 @@ export default function Hero({ preloadedVideoUrl }: HeroProps) {
 
           {/* CTA Buttons */}
           <div className="hero-cta-buttons">
-            <button className="cta-btn-primary">
+            <button 
+              className="cta-btn-primary"
+              onClick={() => {
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               Book Free Consultation <ArrowRight size={16} />
             </button>
-            <button className="cta-btn-secondary">
+            <button 
+              className="cta-btn-secondary"
+              onClick={() => {
+                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               Our Services <ArrowRight size={16} />
             </button>
           </div>
