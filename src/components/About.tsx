@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -248,27 +248,21 @@ export default function About() {
             </div>
           </div>
 
-          {/* Small Block Right (Floating Text + Button) */}
+          {/* Small Block Right (Floating Text) */}
           <div ref={row1BlockRef} className="about-small-block">
             <p className="about-small-text">
               We engineer the marketing automation and tracking systems that help your brand scale predictably.
             </p>
-            <button className="about-pill-btn">
-              Our Philosophy <ArrowRight size={14} className="about-pill-arrow" />
-            </button>
           </div>
         </div>
 
         {/* Row 2 */}
         <div className="about-row about-row-2">
-          {/* Small Block Left (Floating Text + Button) */}
+          {/* Small Block Left (Floating Text) */}
           <div ref={row2BlockRef} className="about-small-block">
             <p className="about-small-text">
               Partner directly with certified marketing engineers, data architects, and creative strategists.
             </p>
-            <button className="about-pill-btn">
-              Meet the Team <ArrowRight size={14} className="about-pill-arrow" />
-            </button>
           </div>
 
           {/* Large Container Right (Text Left, Image Right) */}
