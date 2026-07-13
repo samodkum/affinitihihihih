@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://affinitykraftsolution.com/sitemap.xml

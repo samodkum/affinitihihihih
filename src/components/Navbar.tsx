@@ -40,7 +40,7 @@ export default function Navbar() {
       <ul className="nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">Philosophy</a></li>
-        <li><a href="#experience">Excellence</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button className="nav-btn">Elevate Now</button>
