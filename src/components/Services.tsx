@@ -149,6 +149,36 @@ export default function Services() {
   // Drawer details state
   const [activeService, setActiveService] = useState<ServiceCard | null>(null);
 
+  // Touch gesture refs for swiping
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+  const touchEndRef = useRef<{ x: number; y: number } | null>(null);
+  const isSwipedRef = useRef<boolean>(false);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+    touchEndRef.current = null;
+    isSwipedRef.current = false;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    touchEndRef.current = { x: touch.clientX, y: touch.clientY };
+  };
+
+  const handleTouchEnd = (index: number) => {
+    if (!touchStartRef.current || !touchEndRef.current) return;
+
+    const diffX = touchEndRef.current.x - touchStartRef.current.x;
+    const diffY = touchEndRef.current.y - touchStartRef.current.y;
+    const threshold = 50; // swiped 50px horizontally
+
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > threshold) {
+      isSwipedRef.current = true;
+      handleCardTap(index);
+    }
+  };
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 680);
@@ -321,9 +351,14 @@ export default function Services() {
                   isMobile && position === 0 ? 'top-card-glow' : ''
                 }`}
                 style={mobileStyle}
+                onTouchStart={isMobile ? handleTouchStart : undefined}
+                onTouchMove={isMobile ? handleTouchMove : undefined}
+                onTouchEnd={isMobile ? () => handleTouchEnd(index) : undefined}
                 onClick={() => {
                   if (isMobile) {
-                    handleCardTap(index);
+                    if (!isSwipedRef.current) {
+                      setActiveService(service);
+                    }
                   } else {
                     setActiveService(service);
                   }
@@ -352,27 +387,19 @@ export default function Services() {
                     <h3 className="service-card-title">{service.title}</h3>
                   </div>
 
-                  {/* Card footer action */}
-                  {isMobile ? (
-                    position === 0 ? (
-                      <div className="service-card-footer-action mobile-actions" onClick={(e) => e.stopPropagation()}>
-                        <span className="click-more-text" onClick={() => setActiveService(service)}>
-                          Tap to see more
-                        </span>
-                        <span className="swipe-next-text" onClick={() => handleCardTap(index)}>
-                          Swipe Next →
-                        </span>
-                      </div>
-                    ) : (
-                      <div className="service-card-footer-action">
-                        <span className="click-more-text">Tap to see more</span>
-                      </div>
-                    )
-                  ) : (
-                    <div className="service-card-footer-action">
-                      <span className="click-more-text">Click to see more →</span>
+                  {/* Swipe hint for top card */}
+                  {isMobile && position === 0 && (
+                    <div className="service-swipe-hint">
+                      Swipe to rotate →
                     </div>
                   )}
+
+                  {/* Card footer action */}
+                  <div className="service-card-footer-action">
+                    <span className="click-more-text">
+                      {isMobile ? 'Tap to see more' : 'Click to see more →'}
+                    </span>
+                  </div>
                 </div>
               </div>
             );
