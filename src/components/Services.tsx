@@ -1,85 +1,133 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { TrendingUp, Cpu, BarChart3, Target, Sparkles } from 'lucide-react';
+import { TrendingUp, Cpu, BarChart3, Target, Sparkles, X } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
+
+interface ServiceDrawerCategory {
+  title: string;
+  items: string[];
+}
 
 interface ServiceCard {
   id: number;
   title: string;
-  subServices: string[];
+  cardSubServices: string[];
+  categories: ServiceDrawerCategory[];
   icon: React.ReactNode;
   tag?: {
     text: string;
     color: 'orange' | 'amber';
   };
   gradient: string;
+  longDescription: string;
 }
 
 const services: ServiceCard[] = [
   {
     id: 1,
     title: 'Brand & Creative',
-    subServices: [
-      'Brand Strategy', 'Logo Design', 'Brand Identity',
-      'Packaging Design', 'Corporate Branding',
-      'Social Media Creatives', 'Brochures', 'Flyers',
-      'Company Profiles', 'Catalogues', 'Presentation Design', 'Print Design',
+    cardSubServices: [
+      'Brand Strategy', 'Logo Design', 'Social Media Creatives', 'Print Design'
+    ],
+    categories: [
+      {
+        title: 'Branding',
+        items: ['Brand Strategy', 'Logo Design', 'Brand Identity', 'Packaging Design', 'Corporate Branding']
+      },
+      {
+        title: 'Creative Designing',
+        items: ['Social Media Creatives', 'Brochures', 'Flyers', 'Company Profiles', 'Catalogues', 'Presentation Design', 'Print Design']
+      }
     ],
     icon: <Sparkles className="service-icon-svg" size={24} />,
     tag: { text: '@brand', color: 'orange' },
     gradient: 'linear-gradient(135deg, #FF6A00 0%, #FF8C1A 100%)',
+    longDescription: 'Position your brand as an industry leader. We develop cohesive identities, packaging, and high-impact design assets that capture attention and build lasting trust.'
   },
   {
     id: 2,
     title: 'Social & Content',
-    subServices: [
-      'Instagram Marketing', 'Facebook Marketing', 'LinkedIn Marketing',
-      'Reels Marketing', 'Content Strategy', 'Community Management',
-      'Copywriting', 'Blogs', 'Website Content', 'Email Marketing', 'Case Studies',
+    cardSubServices: [
+      'Instagram Marketing', 'Content Strategy', 'Copywriting', 'Email Marketing'
+    ],
+    categories: [
+      {
+        title: 'Social Media Marketing',
+        items: ['Instagram Marketing', 'Facebook Marketing', 'LinkedIn Marketing', 'Content Strategy', 'Reels Marketing', 'Community Management']
+      },
+      {
+        title: 'Content Marketing',
+        items: ['Copywriting', 'Blogs', 'Website Content', 'Email Marketing', 'Case Studies']
+      }
     ],
     icon: <TrendingUp className="service-icon-svg" size={24} />,
     tag: { text: '@social', color: 'amber' },
     gradient: 'linear-gradient(135deg, #FF8C1A 0%, #FFB347 100%)',
+    longDescription: 'Amplify your message across digital channels. We craft data-driven content strategies, manage communities, and write copy that drives engagement and action.'
   },
   {
     id: 3,
     title: 'Performance & SEO',
-    subServices: [
-      'Meta Ads', 'Google Ads', 'Lead Generation',
-      'Sales Campaigns', 'Retargeting Campaigns', 'Conversion Optimization',
-      'Local SEO', 'Technical SEO', 'On-Page SEO',
-      'Off-Page SEO', 'Keyword Research', 'Website Audit',
+    cardSubServices: [
+      'Meta & Google Ads', 'Lead Generation', 'Technical SEO', 'Keyword Research'
+    ],
+    categories: [
+      {
+        title: 'Performance Marketing',
+        items: ['Meta Ads', 'Google Ads', 'Lead Generation', 'Sales Campaigns', 'Retargeting Campaigns', 'Conversion Optimization']
+      },
+      {
+        title: 'Search Engine Optimization (SEO)',
+        items: ['Local SEO', 'Technical SEO', 'On-Page SEO', 'Off-Page SEO', 'Keyword Research', 'Website Audit']
+      }
     ],
     icon: <Target className="service-icon-svg" size={24} />,
     gradient: 'linear-gradient(135deg, #FFB347 0%, #FFF4D6 100%)',
+    longDescription: 'Drive measurable business growth. Our campaigns optimize ad spend to acquire high-value leads, while search engine optimization maximizes your organic visibility.'
   },
   {
     id: 4,
     title: 'Web & Video',
-    subServices: [
-      'Business Websites', 'Landing Pages', 'E-commerce Websites',
-      'WordPress Development', 'Website Maintenance',
-      'Brand Shoots', 'Product Shoots', 'Corporate Shoots',
-      'Reels Production', 'Drone Shoots', 'Video Editing',
+    cardSubServices: [
+      'Business Websites', 'Landing Pages', 'Brand Shoots', 'Video Editing'
+    ],
+    categories: [
+      {
+        title: 'Website Development',
+        items: ['Business Websites', 'Landing Pages', 'E-commerce Websites', 'WordPress Development', 'Website Maintenance']
+      },
+      {
+        title: 'Video Production',
+        items: ['Brand Shoots', 'Product Shoots', 'Corporate Shoots', 'Reels Production', 'Drone Shoots', 'Video Editing']
+      }
     ],
     icon: <BarChart3 className="service-icon-svg" size={24} />,
     gradient: 'linear-gradient(135deg, #FF6A00 0%, #FFB347 100%)',
+    longDescription: 'Build a premium digital presence. We construct responsive, lightning-fast websites and produce cinematic video content that brings your brand story to life.'
   },
   {
     id: 5,
     title: 'Tech & Automation',
-    subServices: [
-      'CRM Setup', 'Email Automation', 'WhatsApp Automation',
-      'Lead Funnels', 'Workflow Automation',
-      'AI Chatbots', 'AI Content Automation',
-      'AI Workflow Integration', 'AI Customer Support',
+    cardSubServices: [
+      'CRM Setup', 'Marketing Automation', 'AI Chatbots', 'AI Workflow Integration'
+    ],
+    categories: [
+      {
+        title: 'Marketing Automation',
+        items: ['CRM Setup', 'Email Automation', 'WhatsApp Automation', 'Lead Funnels', 'Workflow Automation']
+      },
+      {
+        title: 'AI Solutions',
+        items: ['AI Chatbots', 'AI Content Automation', 'AI Workflow Integration', 'AI Customer Support']
+      }
     ],
     icon: <Cpu className="service-icon-svg" size={24} />,
     tag: { text: '@ai', color: 'orange' },
     gradient: 'linear-gradient(135deg, #FF8C1A 0%, #FFF4D6 100%)',
-  },
+    longDescription: 'Streamline operations with cutting-edge tech. We set up automated lead funnels, CRM systems, and integrate artificial intelligence to optimize support and tasks.'
+  }
 ];
 
 const themes = ['theme-orange', 'theme-white', 'theme-charcoal', 'theme-black'];
@@ -97,6 +145,9 @@ export default function Services() {
   // Mobile Gallery Stack State
   const [stackOrder, setStackOrder] = useState<number[]>([0, 1, 2, 3, 4]);
   const [swipingIndex, setSwipingIndex] = useState<number | null>(null);
+
+  // Drawer details state
+  const [activeService, setActiveService] = useState<ServiceCard | null>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -177,6 +228,32 @@ export default function Services() {
     return () => ctx.revert();
   }, [isMobile]);
 
+  // Lock scroll and handle Esc key when drawer is open
+  useEffect(() => {
+    if (!activeService) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setActiveService(null);
+      }
+    };
+
+    // Lock body and html scroll
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalBodyOverflow;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [activeService]);
+
   // Mobile card tap transition handler
   const handleCardTap = (index: number) => {
     // Only allow tapping the top card
@@ -244,7 +321,13 @@ export default function Services() {
                   isMobile && position === 0 ? 'top-card-glow' : ''
                 }`}
                 style={mobileStyle}
-                onClick={() => isMobile && handleCardTap(index)}
+                onClick={() => {
+                  if (isMobile) {
+                    handleCardTap(index);
+                  } else {
+                    setActiveService(service);
+                  }
+                }}
               >
                 {/* Optional speech bubble tags */}
                 {service.tag && (
@@ -265,19 +348,29 @@ export default function Services() {
                   </div>
 
                   {/* Body details */}
-                  <div className="service-card-body">
+                  <div className="service-card-body centered-body">
                     <h3 className="service-card-title">{service.title}</h3>
-                    <ul className="service-sub-list">
-                      {service.subServices.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                    </ul>
                   </div>
 
-                  {/* Mobile-only Tap To Swipe hint */}
-                  {isMobile && position === 0 && (
-                    <div className="service-swipe-hint">
-                      Tap To Swipe →
+                  {/* Card footer action */}
+                  {isMobile ? (
+                    position === 0 ? (
+                      <div className="service-card-footer-action mobile-actions" onClick={(e) => e.stopPropagation()}>
+                        <span className="click-more-text" onClick={() => setActiveService(service)}>
+                          Tap to see more
+                        </span>
+                        <span className="swipe-next-text" onClick={() => handleCardTap(index)}>
+                          Swipe Next →
+                        </span>
+                      </div>
+                    ) : (
+                      <div className="service-card-footer-action">
+                        <span className="click-more-text">Tap to see more</span>
+                      </div>
+                    )
+                  ) : (
+                    <div className="service-card-footer-action">
+                      <span className="click-more-text">Click to see more →</span>
                     </div>
                   )}
                 </div>
@@ -285,8 +378,6 @@ export default function Services() {
             );
           })}
         </div>
-
-
       </div>
 
       {/* Bottom text block & CTA buttons */}
@@ -301,6 +392,67 @@ export default function Services() {
           <a href="#portfolio" className="services-btn-secondary">
             Explore works
           </a>
+        </div>
+      </div>
+
+      {/* Details Drawer */}
+      <div 
+        className={`services-drawer-overlay ${activeService ? 'is-open' : ''}`}
+        onClick={() => setActiveService(null)}
+      >
+        <div 
+          className="services-drawer"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {activeService && (
+            <>
+              {/* Drawer Header */}
+              <div className="drawer-header">
+                <div className="drawer-title-row">
+                  <div className="drawer-icon-bg" style={{ background: activeService.gradient }}>
+                    {activeService.icon}
+                  </div>
+                  <h3 className="drawer-title">{activeService.title}</h3>
+                </div>
+                <button className="drawer-close-btn" onClick={() => setActiveService(null)} aria-label="Close details">
+                  <X size={24} />
+                </button>
+              </div>
+
+              {/* Drawer Body */}
+              <div className="drawer-body">
+                <p className="drawer-description">{activeService.longDescription}</p>
+                
+                <div className="drawer-categories">
+                  {activeService.categories.map((category, idx) => (
+                    <div key={idx} className="drawer-category-group">
+                      <h4 className="drawer-category-title">{category.title}</h4>
+                      <ul className="drawer-category-list">
+                        {category.items.map((item, itemIdx) => (
+                          <li key={itemIdx} className="drawer-category-item">
+                            <span className="drawer-item-dot" style={{ background: activeService.gradient }} />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Drawer Footer */}
+              <div className="drawer-footer">
+                <a 
+                  href="#contact" 
+                  className="drawer-cta-btn" 
+                  style={{ background: activeService.gradient }}
+                  onClick={() => setActiveService(null)}
+                >
+                  Discuss this Service
+                </a>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </section>
