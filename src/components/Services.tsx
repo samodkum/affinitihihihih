@@ -390,7 +390,7 @@ export default function Services() {
                   {/* Swipe hint for top card */}
                   {isMobile && position === 0 && (
                     <div className="service-swipe-hint">
-                      Swipe to rotate →
+                      Swipe to see next →
                     </div>
                   )}
 
